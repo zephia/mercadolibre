@@ -1,0 +1,6 @@
+{
+  "message": "User, -2, not found",
+  "error":"not_found",
+  "status":404,
+  "cause":[]
+}

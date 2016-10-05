@@ -53,4 +53,16 @@ class MercadoLibreClient
     {
         return $this->guzzleClient;
     }
+
+    /**
+     * Show User resource
+     *
+     * @param $customer_id
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function showUser($customer_id)
+    {
+        return $this->getGuzzleClient()->get('/users/' . $customer_id);
+    }
 }

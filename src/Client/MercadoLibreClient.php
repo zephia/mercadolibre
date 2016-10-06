@@ -65,7 +65,7 @@ class MercadoLibreClient
      *
      * @return $this
      */
-    public function setAccessToken(string $access_token)
+    public function setAccessToken($access_token)
     {
         $this->access_token = $access_token;
         return $this;

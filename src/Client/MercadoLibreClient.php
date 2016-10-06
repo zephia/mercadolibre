@@ -31,6 +31,13 @@ class MercadoLibreClient
     private $guzzleClient;
 
     /**
+     * Access Token from MercadoLibre OAuth
+     *
+     * @var string
+     */
+    private $access_token;
+
+    /**
      * MercadoLibreClient constructor.
      *
      * @param array $config
@@ -38,7 +45,6 @@ class MercadoLibreClient
     public function __construct(array $config = [])
     {
         $defaults = ['base_uri' => self::BASE_URI];
-
         $config = array_merge($defaults, $config);
 
         $this->guzzleClient = new GuzzleClient($config);
@@ -55,6 +61,25 @@ class MercadoLibreClient
     }
 
     /**
+     * @param string $access_token
+     *
+     * @return $this
+     */
+    public function setAccessToken(string $access_token)
+    {
+        $this->access_token = $access_token;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAccessToken()
+    {
+        return $this->access_token;
+    }
+
+    /**
      * Show User resource
      *
      * @param $customer_id
@@ -63,6 +88,24 @@ class MercadoLibreClient
      */
     public function showUser($customer_id)
     {
-        return $this->getGuzzleClient()->get('/users/' . $customer_id);
+        $query = $this->setQuery([]);
+
+        return $this->getGuzzleClient()->get('/users/' . $customer_id, $query);
+    }
+
+    /**
+     * Set query
+     *
+     * @param array $query
+     *
+     * @return array
+     */
+    private function setQuery(array $query = [])
+    {
+        $defaults = [];
+        if (!empty($this->getAccessToken())) {
+            $defaults['access_token'] = $this->getAccessToken();
+        }
+        return ['query' => array_merge($defaults, $query)];
     }
 }

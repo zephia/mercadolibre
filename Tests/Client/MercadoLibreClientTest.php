@@ -268,4 +268,43 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($user->context->flow);
         $this->assertNull($user->context->device);
     }
+
+    /**
+     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedExceptionMessage Client error: `GET https://api.mercadolibre.com/users/me?access_token=bad_token` resulted in a `400 Bad Request`
+     */
+    public function testShowUserMeWrongAccessToken()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(400, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/show_user_private_400', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+        $client->setAccessToken('bad_token')->showUserMe();
+    }
+
+    /**
+     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedExceptionMessage Client error: `GET https://api.mercadolibre.com/users/me?access_token=APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789` resulted in a `401 Unauthorized`
+     */
+    public function testShowUserMeInvalidAccessToken()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(401, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/show_user_private_401', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+        $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->showUserMe();
+    }
+
+    public function testShowUserMeAccessTokenOk()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(200, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/show_user_private_200', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+        $user = $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->showUserMe();
+        $this->assertEquals(1, $user->id);
+    }
 }

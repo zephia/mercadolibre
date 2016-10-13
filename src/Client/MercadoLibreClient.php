@@ -101,9 +101,8 @@ class MercadoLibreClient
      */
     public function showUser($customer_id)
     {
-        $query = $this->setQuery([]);
         $response = $this->getGuzzleClient()
-            ->get('/users/' . $customer_id, $query);
+            ->get('/users/' . $customer_id, $this->setQuery());
 
         return $this->serializer->deserialize(
             $response->getBody()->getContents(),

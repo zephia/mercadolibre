@@ -97,7 +97,7 @@ class MercadoLibreClient
      *
      * @param $customer_id
      *
-     * @return \Psr\Http\Message\ResponseInterface
+     * @return object
      */
     public function showUser($customer_id)
     {

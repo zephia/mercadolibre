@@ -1,0 +1,13 @@
+Zephia\MercadoLibre\Entity\Company:
+  exclusion_policy: NONE
+  properties:
+    brand_name:
+      type: "string"
+    city_tax_id:
+      type: "string"
+    corporate_name:
+      type: "string"
+    identification:
+      type: "string"
+    state_tax_id:
+      type: "string"

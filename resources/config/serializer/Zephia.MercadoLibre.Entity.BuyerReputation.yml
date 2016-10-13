@@ -1,0 +1,9 @@
+Zephia\MercadoLibre\Entity\BuyerReputation:
+  exclusion_policy: NONE
+  properties:
+    canceled_transactions:
+      type: "integer"
+    tags:
+      type: "array"
+    transactions:
+      type: "Zephia\\MercadoLibre\\Entity\\BuyerTransaction"

@@ -1,0 +1,9 @@
+Zephia\MercadoLibre\Entity\Context:
+  exclusion_policy: NONE
+  properties:
+    device:
+      type: "string"
+    flow:
+      type: "string"
+    source:
+      type: "string"

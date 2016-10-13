@@ -1,0 +1,15 @@
+Zephia\MercadoLibre\Entity\BuyerTransaction:
+  exclusion_policy: NONE
+  properties:
+    canceled:
+      type: "Zephia\\MercadoLibre\\Entity\\Canceled"
+    completed:
+      type: "integer"
+    not_yet_rated:
+      type: "Zephia\\MercadoLibre\\Entity\\NotYetRated"
+    period:
+      type: "string"
+    total:
+      type: "integer"
+    unrated:
+      type: "Zephia\\MercadoLibre\\Entity\\Unrated"

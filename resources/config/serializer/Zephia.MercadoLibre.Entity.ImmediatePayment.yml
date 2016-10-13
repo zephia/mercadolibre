@@ -1,0 +1,7 @@
+Zephia\MercadoLibre\Entity\ImmediatePayment:
+  exclusion_policy: NONE
+  properties:
+    reasons:
+      type: "array"
+    required:
+      type: "boolean"

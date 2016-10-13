@@ -1,22 +1,50 @@
 {
   "id": 1,
-  "nickname": "NICTRAFFICGENER1",
-  "registration_date": "2011-09-05T12:00:00.000-04:00",
-  "country_id": "CL",
+  "nickname": "TEST",
+  "registration_date": "1970-01-01T00:00:00.000+00:00",
+  "first_name": "Test",
+  "last_name": "Test",
+  "country_id": "AR",
   "email": "test@test.com",
-  "address": {
-    "state": null,
-    "city": null
+  "identification": {
+    "type": "Otro",
+    "number": "12345678"
   },
-  "user_type": "normal",
+  "address": {
+    "state": "AR-X",
+    "city": "Córdoba",
+    "address": "Test",
+    "zip_code": "1234"
+  },
+  "phone": {
+    "area_code": null,
+    "number": "12345678",
+    "extension": "",
+    "verified": false
+  },
+  "alternative_phone": {
+    "area_code": "",
+    "number": "",
+    "extension": ""
+  },
+  "user_type": "car_dealer",
   "tags": [
-    "normal",
-    "test_user"
+    "car_dealer",
+    "user_info_verified",
+    "messages_as_seller"
   ],
   "logo": null,
   "points": 0,
-  "site_id": "MLC",
-  "permalink": "http://perfil.mercadolibre.cl/NICTRAFFICGENER1",
+  "site_id": "MLA",
+  "permalink": "http://perfil.mercadolibre.com.ar/TEST",
+  "shipping_modes": [
+    "custom",
+    "not_specified"
+  ],
+  "seller_experience": "ADVANCED",
+  "bill_data": {
+    "accept_credit_note": null
+  },
   "seller_reputation": {
     "level_id": null,
     "power_seller_status": null,
@@ -33,9 +61,80 @@
     }
   },
   "buyer_reputation": {
+    "canceled_transactions": 0,
+    "transactions": {
+      "period": "historic",
+      "total": null,
+      "completed": null,
+      "canceled": {
+        "total": null,
+        "paid": null
+      },
+      "unrated": {
+        "total": null,
+        "paid": null
+      },
+      "not_yet_rated": {
+        "total": null,
+        "paid": null,
+        "units": null
+      }
+    },
     "tags": []
   },
   "status": {
-    "site_status": "deactive"
+    "site_status": "active",
+    "list": {
+      "allow": true,
+      "codes": [],
+      "immediate_payment": {
+        "required": false,
+        "reasons": []
+      }
+    },
+    "buy": {
+      "allow": true,
+      "codes": [],
+      "immediate_payment": {
+        "required": false,
+        "reasons": []
+      }
+    },
+    "sell": {
+      "allow": true,
+      "codes": [],
+      "immediate_payment": {
+        "required": false,
+        "reasons": []
+      }
+    },
+    "billing": {
+      "allow": true,
+      "codes": []
+    },
+    "mercadopago_tc_accepted": true,
+    "mercadopago_account_type": "personal",
+    "mercadoenvios": "not_accepted",
+    "immediate_payment": false,
+    "confirmed_email": false,
+    "user_type": "simple_registration",
+    "required_action": ""
+  },
+  "secure_email": "test@test.com",
+  "company": {
+    "corporate_name": "Test",
+    "brand_name": null,
+    "identification": "12345678",
+    "state_tax_id": null,
+    "city_tax_id": null
+  },
+  "credit": {
+    "consumed": 0,
+    "credit_level_id": "MLA1"
+  },
+  "context": {
+    "source": "mercadolibre",
+    "flow": null,
+    "device": null
   }
 }

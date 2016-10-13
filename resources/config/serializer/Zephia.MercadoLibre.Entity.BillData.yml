@@ -1,0 +1,5 @@
+Zephia\MercadoLibre\Entity\BillData:
+  exclusion_policy: NONE
+  properties:
+    accept_credit_note:
+      type: "string"

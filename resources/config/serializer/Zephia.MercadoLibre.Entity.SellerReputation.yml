@@ -1,0 +1,9 @@
+Zephia\MercadoLibre\Entity\SellerReputation:
+  exclusion_policy: NONE
+  properties:
+    level_id:
+      type: "string"
+    power_seller_status:
+      type: "string"
+    transactions:
+      type: "Zephia\\MercadoLibre\\Entity\\SellerTransaction"

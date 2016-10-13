@@ -1,0 +1,7 @@
+Zephia\MercadoLibre\Entity\Canceled:
+  exclusion_policy: NONE
+  properties:
+    paid:
+      type: "integer"
+    total:
+      type: "integer"

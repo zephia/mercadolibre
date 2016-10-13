@@ -1,0 +1,9 @@
+Zephia\MercadoLibre\Entity\NotYetRated:
+  exclusion_policy: NONE
+  properties:
+    paid:
+      type: "integer"
+    total:
+      type: "integer"
+    units:
+      type: "string"

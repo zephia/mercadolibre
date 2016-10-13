@@ -1,0 +1,11 @@
+Zephia\MercadoLibre\Entity\Address:
+  exclusion_policy: NONE
+  properties:
+    address:
+      type: "string"
+    city:
+      type: "string"
+    state:
+      type: "string"
+    zip_code:
+      type: "string"

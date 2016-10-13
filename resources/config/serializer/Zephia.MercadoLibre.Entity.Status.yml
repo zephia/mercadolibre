@@ -1,0 +1,27 @@
+Zephia\MercadoLibre\Entity\Status:
+  exclusion_policy: NONE
+  properties:
+    billing:
+      type: "Zephia\\MercadoLibre\\Entity\\StatusAction"
+    buy:
+      type: "Zephia\\MercadoLibre\\Entity\\StatusAction"
+    confirmed_email:
+      type: "boolean"
+    immediate_payment:
+      type: "boolean"
+    list:
+      type: "Zephia\\MercadoLibre\\Entity\\StatusAction"
+    mercadoenvios:
+      type: "string"
+    mercadopago_account_type:
+      type: "string"
+    mercadopago_tc_accepted:
+      type: "boolean"
+    required_action:
+      type: "string"
+    sell:
+      type: "Zephia\\MercadoLibre\\Entity\\StatusAction"
+    site_status:
+      type: "string"
+    user_type:
+      type: "string"

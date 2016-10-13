@@ -1,21 +1,21 @@
 {
   "id": 1,
-  "nickname": "NICTRAFFICGENER1",
-  "registration_date": "2011-09-05T12:00:00.000-04:00",
-  "country_id": "CL",
+  "nickname": "TEST",
+  "registration_date": "1970-01-01T00:00:00.000+00:00",
+  "country_id": "AR",
   "address": {
-    "state": null,
-    "city": null
+    "state": "AR-X",
+    "city": "Córdoba"
   },
-  "user_type": "normal",
+  "user_type": "car_dealer",
   "tags": [
-    "normal",
-    "test_user"
+    "car_dealer",
+    "user_info_verified"
   ],
   "logo": null,
   "points": 0,
-  "site_id": "MLC",
-  "permalink": "http://perfil.mercadolibre.cl/NICTRAFFICGENER1",
+  "site_id": "MLA",
+  "permalink": "http://perfil.mercadolibre.com.ar/TEST",
   "seller_reputation": {
     "level_id": null,
     "power_seller_status": null,
@@ -35,6 +35,6 @@
     "tags": []
   },
   "status": {
-    "site_status": "deactive"
+    "site_status": "active"
   }
 }

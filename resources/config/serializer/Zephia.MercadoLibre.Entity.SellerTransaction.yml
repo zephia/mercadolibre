@@ -1,0 +1,13 @@
+Zephia\MercadoLibre\Entity\SellerTransaction:
+  exclusion_policy: NONE
+  properties:
+    canceled:
+      type: "integer"
+    completed:
+      type: "integer"
+    period:
+      type: "string"
+    ratings:
+      type: "Zephia\\MercadoLibre\\Entity\\Rating"
+    total:
+      type: "integer"

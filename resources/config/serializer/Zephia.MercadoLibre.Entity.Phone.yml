@@ -1,0 +1,11 @@
+Zephia\MercadoLibre\Entity\Phone:
+  exclusion_policy: NONE
+  properties:
+    area_code:
+      type: "string"
+    extension:
+      type: "string"
+    number:
+      type: "string"
+    verified:
+      type: "boolean"

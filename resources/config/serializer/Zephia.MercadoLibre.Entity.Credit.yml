@@ -1,0 +1,7 @@
+Zephia\MercadoLibre\Entity\Credit:
+  exclusion_policy: NONE
+  properties:
+    consumed:
+      type: "integer"
+    credit_level_id:
+      type: "string"

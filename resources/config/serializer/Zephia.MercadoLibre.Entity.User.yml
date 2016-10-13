@@ -1,0 +1,57 @@
+Zephia\MercadoLibre\Entity\User:
+  exclusion_policy: NONE
+  properties:
+    id:
+      type: "integer"
+    address:
+      type: "Zephia\\MercadoLibre\\Entity\\Address"
+    alternative_phone:
+      type: "Zephia\\MercadoLibre\\Entity\\Phone"
+    bill_data:
+      type: "Zephia\\MercadoLibre\\Entity\\BillData"
+    buyer_reputation:
+      type: "Zephia\\MercadoLibre\\Entity\\BuyerReputation"
+    country_id:
+      type: "string"
+    company:
+      type: "Zephia\\MercadoLibre\\Entity\\Company"
+    context:
+      type: "Zephia\\MercadoLibre\\Entity\\Context"
+    credit:
+      type: "Zephia\\MercadoLibre\\Entity\\Credit"
+    email:
+      type: "string"
+    first_name:
+      type: "string"
+    identification:
+      type: "Zephia\\MercadoLibre\\Entity\\Identification"
+    last_name:
+      type: "string"
+    logo:
+      type: "string"
+    nickname:
+      type: "string"
+    permalink:
+      type: "string"
+    phone:
+      type: "Zephia\\MercadoLibre\\Entity\\Phone"
+    points:
+      type: "integer"
+    registration_date:
+      type: "DateTime<'Y-m-d\\TH:i:s.uP'>"
+    secure_email:
+      type: "string"
+    seller_experience:
+      type: "string"
+    seller_reputation:
+      type: "Zephia\\MercadoLibre\\Entity\\SellerReputation"
+    shipping_modes:
+      type: "array"
+    site_id:
+      type: "string"
+    status:
+      type: "Zephia\\MercadoLibre\\Entity\\Status"
+    tags:
+      type: "array"
+    user_type:
+      type: "string"

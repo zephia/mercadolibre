@@ -118,13 +118,7 @@ class MercadoLibreClient
      */
     public function userShowMe()
     {
-        $response = $this->getGuzzleClient()
-            ->get('/users/me', $this->setQuery());
-
-        return $this->serializer->deserialize(
-            $response->getBody()->getContents(),
-            User::class, 'json'
-        );
+        return $this->userShow('me');
     }
 
     /**

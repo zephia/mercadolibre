@@ -1,0 +1,7 @@
+Zephia\MercadoLibre\Entity\Category:
+  exclusion_policy: NONE
+  properties:
+    id:
+      type: string
+    name:
+      type: string

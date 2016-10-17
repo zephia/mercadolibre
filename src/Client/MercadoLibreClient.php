@@ -12,6 +12,7 @@ namespace Zephia\MercadoLibre\Client;
 
 use GuzzleHttp\Client as GuzzleClient;
 use JMS\Serializer\SerializerInterface;
+use Zephia\MercadoLibre\Entity\Category;
 use Zephia\MercadoLibre\Entity\User;
 
 /**
@@ -97,9 +98,9 @@ class MercadoLibreClient
      *
      * @param $customer_id
      *
-     * @return object
+     * @return array|\JMS\Serializer\scalar|object
      */
-    public function showUser($customer_id)
+    public function userShow($customer_id)
     {
         $response = $this->getGuzzleClient()
             ->get('/users/' . $customer_id, $this->setQuery());
@@ -110,7 +111,12 @@ class MercadoLibreClient
         );
     }
 
-    public function showUserMe()
+    /**
+     * Show User me resource
+     *
+     * @return array|\JMS\Serializer\scalar|object
+     */
+    public function userShowMe()
     {
         $response = $this->getGuzzleClient()
             ->get('/users/me', $this->setQuery());
@@ -118,6 +124,25 @@ class MercadoLibreClient
         return $this->serializer->deserialize(
             $response->getBody()->getContents(),
             User::class, 'json'
+        );
+    }
+
+    /**
+     * List Categories resource
+     *
+     * @param $site_id string
+     *
+     * @return array|\JMS\Serializer\scalar|object
+     */
+    public function categoryList($site_id)
+    {
+        $response = $this->getGuzzleClient()
+            ->get('/sites/' . $site_id . '/categories', $this->setQuery());
+
+        return $this->serializer->deserialize(
+            $response->getBody()->getContents(),
+            "array<" . Category::class . ">",
+            'json'
         );
     }
 

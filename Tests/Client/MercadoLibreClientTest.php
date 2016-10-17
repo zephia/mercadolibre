@@ -13,6 +13,7 @@ use Zephia\MercadoLibre\Entity\BillData;
 use Zephia\MercadoLibre\Entity\BuyerReputation;
 use Zephia\MercadoLibre\Entity\BuyerTransaction;
 use Zephia\MercadoLibre\Entity\Canceled;
+use Zephia\MercadoLibre\Entity\Category;
 use Zephia\MercadoLibre\Entity\Company;
 use Zephia\MercadoLibre\Entity\Context;
 use Zephia\MercadoLibre\Entity\Credit;
@@ -63,10 +64,10 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new MercadoLibreClient([], $this->serializer);
         $mock = new MockHandler([
-            new Response(400, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/show_user_400', 'r')))
+            new Response(400, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/user_show_400', 'r')))
         ]);
         $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
-        $client->showUser('a');
+        $client->userShow('a');
     }
 
     /**
@@ -77,20 +78,20 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new MercadoLibreClient([], $this->serializer);
         $mock = new MockHandler([
-            new Response(404, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/show_user_404', 'r')))
+            new Response(404, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/user_show_404', 'r')))
         ]);
         $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
-        $client->showUser(-2);
+        $client->userShow(-2);
     }
 
     public function testShowUserOk()
     {
         $client = new MercadoLibreClient([], $this->serializer);
         $mock = new MockHandler([
-            new Response(200, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/show_user_200', 'r')))
+            new Response(200, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/user_show_200', 'r')))
         ]);
         $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
-        $user = $client->showUser(1);
+        $user = $client->userShow(1);
         $this->assertEquals(1, $user->id);
         $this->assertEquals('TEST', $user->nickname);
         $this->assertEquals((new \DateTime('1970-01-01')), $user->registration_date);
@@ -131,10 +132,10 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new MercadoLibreClient([], $this->serializer);
         $mock = new MockHandler([
-            new Response(400, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/show_user_private_400', 'r')))
+            new Response(400, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/user_show_private_400', 'r')))
         ]);
         $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
-        $client->setAccessToken('bad_token')->showUser(1);
+        $client->setAccessToken('bad_token')->userShow(1);
     }
 
     /**
@@ -145,20 +146,20 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new MercadoLibreClient([], $this->serializer);
         $mock = new MockHandler([
-            new Response(401, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/show_user_private_401', 'r')))
+            new Response(401, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/user_show_private_401', 'r')))
         ]);
         $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
-        $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->showUser(1);
+        $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->userShow(1);
     }
 
     public function testShowUserAccessTokenOk()
     {
         $client = new MercadoLibreClient([], $this->serializer);
         $mock = new MockHandler([
-            new Response(200, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/show_user_private_200', 'r')))
+            new Response(200, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/user_show_private_200', 'r')))
         ]);
         $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
-        $user = $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->showUser(1);
+        $user = $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->userShow(1);
         $this->assertEquals(1, $user->id);
         $this->assertEquals('TEST', $user->nickname);
         $this->assertEquals((new \DateTime('1970-01-01')), $user->registration_date);
@@ -277,10 +278,10 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new MercadoLibreClient([], $this->serializer);
         $mock = new MockHandler([
-            new Response(400, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/show_user_private_400', 'r')))
+            new Response(400, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/user_show_private_400', 'r')))
         ]);
         $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
-        $client->setAccessToken('bad_token')->showUserMe();
+        $client->setAccessToken('bad_token')->userShowMe();
     }
 
     /**
@@ -291,20 +292,49 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new MercadoLibreClient([], $this->serializer);
         $mock = new MockHandler([
-            new Response(401, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/show_user_private_401', 'r')))
+            new Response(401, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/user_show_private_401', 'r')))
         ]);
         $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
-        $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->showUserMe();
+        $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->userShowMe();
     }
 
     public function testShowUserMeAccessTokenOk()
     {
         $client = new MercadoLibreClient([], $this->serializer);
         $mock = new MockHandler([
-            new Response(200, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/show_user_private_200', 'r')))
+            new Response(200, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/user_show_private_200', 'r')))
         ]);
         $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
-        $user = $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->showUserMe();
+        $user = $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->userShowMe();
         $this->assertEquals(1, $user->id);
+    }
+
+    /**
+     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedExceptionMessage Client error: `GET https://api.mercadolibre.com/sites/wrong_site_id/categories` resulted in a `404 Not Found`
+     */
+    public function testListCategoriesWrongSiteId()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(404, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/category_list_404', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+        $client->categoryList('wrong_site_id');
+    }
+
+    public function testListCategoriesOk()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(200, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/category_list_200', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+        $category_list = $client->categoryList('MLA');
+
+        $this->assertEquals(28, count($category_list));
+        $this->assertInstanceOf(Category::class, $category_list[1]);
+        $this->assertEquals('MLA1403', $category_list[1]->id);
+        $this->assertEquals('Alimentos y Bebidas', $category_list[1]->name);
     }
 }

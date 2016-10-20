@@ -1,0 +1,15 @@
+Zephia\MercadoLibre\Entity\Picture:
+  exclusion_policy: NONE
+  properties:
+    id:
+      type: "string"
+    max_size:
+      type: "string"
+    quality:
+      type: "string"
+    secure_url:
+      type: "string"
+    size:
+      type: "string"
+    url:
+      type: "string"

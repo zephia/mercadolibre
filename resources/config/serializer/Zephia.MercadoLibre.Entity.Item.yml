@@ -1,0 +1,104 @@
+Zephia\MercadoLibre\Entity\Item:
+  exclusion_policy: NONE
+  properties:
+    id:
+      type: "string"
+    accepts_mercadopago:
+      type: "boolean"
+    attributes:
+      type: "array<Zephia\\MercadoLibre\\Entity\\Attribute>"
+    automatic_relist:
+      type: "boolean"
+    available_quantity:
+      type: "integer"
+    base_price:
+      type: "integer"
+    buying_mode:
+      type: "string"
+    catalog_product_id:
+      type: "string"
+    category_id:
+      type: "string"
+    condition:
+      type: "string"
+    coverage_areas:
+      type: "array"
+    currency_id:
+      type: "string"
+    date_created:
+      type: "DateTime<'Y-m-d\\TH:i:s.uP'>"
+    deal_ids:
+      type: "array"
+    descriptions:
+      type: "array<Zephia\\MercadoLibre\\Entity\\Description>"
+    differential_pricing:
+      type: "string"
+    domain_id:
+      type: "string"
+    geolocation:
+      type: "Zephia\\MercadoLibre\\Entity\\Geolocation"
+    initial_quantity:
+      type: "integer"
+    international_delivery_mode:
+      type: "string"
+    last_updated:
+      type: "DateTime<'Y-m-d\\TH:i:s.uP'>"
+    listing_source:
+      type: "string"
+    listing_type_id:
+      type: "string"
+    location:
+      type: "Zephia\\MercadoLibre\\Entity\\Location"
+      type: "Zephia\\MercadoLibre\\Entity\\Location"
+    non_mercado_pago_payment_methods:
+      type: "array"
+    official_store_id:
+      type: "string"
+    original_price:
+      type: "integer"
+    parent_item_id:
+      type: "string"
+    permalink:
+      type: "string"
+    pictures:
+      type: "array<Zephia\\MercadoLibre\\Entity\\Picture>"
+    price:
+      type: "integer"
+    secure_thumbnail:
+      type: "string"
+    seller_address:
+      type: "Zephia\\MercadoLibre\\Entity\\SellerAddress"
+    seller_contact:
+      type: "Zephia\\MercadoLibre\\Entity\\SellerContact"
+    seller_id:
+      type: "integer"
+    shipping:
+      type: "Zephia\\MercadoLibre\\Entity\\Shipping"
+    site_id:
+      type: "string"
+    sold_quantity:
+      type: "integer"
+    start_time:
+      type: "DateTime<'Y-m-d\\TH:i:s.uP'>"
+    status:
+      type: "string"
+    stop_time:
+      type: "DateTime<'Y-m-d\\TH:i:s.uP'>"
+    sub_status:
+      type: "array"
+    subtitle:
+      type: "string"
+    tags:
+      type: "array"
+    thumbnail:
+      type: "string"
+    title:
+      type: "string"
+    variations:
+      type: "array"
+    video_id:
+      type: "string"
+    warnings:
+      type: "array"
+    warranty:
+      type: "string"

@@ -1,0 +1,15 @@
+Zephia\MercadoLibre\Entity\Shipping:
+  exclusion_policy: NONE
+  properties:
+    dimensions:
+      type: "string"
+    free_shipping:
+      type: "boolean"
+    local_pick_up:
+      type: "boolean"
+    methods:
+      type: "array"
+    mode:
+      type: "string"
+    tags:
+      type: "array"

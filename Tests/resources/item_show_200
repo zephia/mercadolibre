@@ -1,0 +1,308 @@
+{
+  "id": "MLA123456789",
+  "site_id": "MLA",
+  "title": "Renault Duster Oroch, Dynamique 1.6",
+  "subtitle": null,
+  "seller_id": 123456789,
+  "category_id": "MLA100028",
+  "official_store_id": null,
+  "price": 321000,
+  "base_price": 321000,
+  "original_price": null,
+  "currency_id": "ARS",
+  "initial_quantity": 1,
+  "available_quantity": 1,
+  "sold_quantity": 0,
+  "buying_mode": "classified",
+  "listing_type_id": "gold_premium",
+  "start_time": "1970-01-01T00:00:00.000+00:00",
+  "stop_time": "1970-01-01T00:00:00.000+00:00",
+  "condition": "not_specified",
+  "permalink": "http://auto.mercadolibre.com.ar/MLA-618881305-renault-duster-oroch-dynamique-16-_JM",
+  "thumbnail": "http://mla-s2-p.mlstatic.com/644021-MLA20697781132_052016-I.jpg",
+  "secure_thumbnail": "https://mla-s2-p.mlstatic.com/644021-MLA20697781132_052016-I.jpg",
+  "pictures": [
+    {
+      "id": "644021-MLA20697781132_052016",
+      "url": "http://mla-s2-p.mlstatic.com/644021-MLA20697781132_052016-O.jpg",
+      "secure_url": "https://mla-s2-p.mlstatic.com/644021-MLA20697781132_052016-O.jpg",
+      "size": "500x281",
+      "max_size": "1024x576",
+      "quality": ""
+    },
+    {
+      "id": "944021-MLA20697781130_052016",
+      "url": "http://mla-s2-p.mlstatic.com/944021-MLA20697781130_052016-O.jpg",
+      "secure_url": "https://mla-s2-p.mlstatic.com/944021-MLA20697781130_052016-O.jpg",
+      "size": "500x281",
+      "max_size": "1024x576",
+      "quality": ""
+    },
+    {
+      "id": "271021-MLA20697781134_052016",
+      "url": "http://mla-s2-p.mlstatic.com/271021-MLA20697781134_052016-O.jpg",
+      "secure_url": "https://mla-s2-p.mlstatic.com/271021-MLA20697781134_052016-O.jpg",
+      "size": "500x281",
+      "max_size": "1024x576",
+      "quality": ""
+    },
+    {
+      "id": "420021-MLA20697781135_052016",
+      "url": "http://mla-s1-p.mlstatic.com/420021-MLA20697781135_052016-O.jpg",
+      "secure_url": "https://mla-s1-p.mlstatic.com/420021-MLA20697781135_052016-O.jpg",
+      "size": "500x281",
+      "max_size": "1024x576",
+      "quality": ""
+    },
+    {
+      "id": "365021-MLA20697781136_052016",
+      "url": "http://mla-s2-p.mlstatic.com/365021-MLA20697781136_052016-O.jpg",
+      "secure_url": "https://mla-s2-p.mlstatic.com/365021-MLA20697781136_052016-O.jpg",
+      "size": "500x281",
+      "max_size": "1024x576",
+      "quality": ""
+    },
+    {
+      "id": "288021-MLA20697781131_052016",
+      "url": "http://mla-s1-p.mlstatic.com/288021-MLA20697781131_052016-O.jpg",
+      "secure_url": "https://mla-s1-p.mlstatic.com/288021-MLA20697781131_052016-O.jpg",
+      "size": "500x281",
+      "max_size": "1024x576",
+      "quality": ""
+    },
+    {
+      "id": "521021-MLA20697781133_052016",
+      "url": "http://mla-s1-p.mlstatic.com/521021-MLA20697781133_052016-O.jpg",
+      "secure_url": "https://mla-s1-p.mlstatic.com/521021-MLA20697781133_052016-O.jpg",
+      "size": "500x281",
+      "max_size": "1024x576",
+      "quality": ""
+    }
+  ],
+  "video_id": "4nJ3hPvHYkk",
+  "descriptions": [
+    {
+      "id": "MLA618881305-1090384048"
+    }
+  ],
+  "accepts_mercadopago": false,
+  "non_mercado_pago_payment_methods": [],
+  "shipping": {
+    "mode": "not_specified",
+    "local_pick_up": false,
+    "free_shipping": false,
+    "methods": [],
+    "dimensions": null,
+    "tags": []
+  },
+  "international_delivery_mode": "none",
+  "seller_address": {
+    "id": 123456789,
+    "comment": "",
+    "address_line": "Test",
+    "zip_code": "5000",
+    "city": {
+      "id": "TUxBQ0NBUGNiZGQx",
+      "name": "Córdoba"
+    },
+    "state": {
+      "id": "AR-X",
+      "name": "Córdoba"
+    },
+    "country": {
+      "id": "AR",
+      "name": "Argentina"
+    },
+    "latitude": -32.000000,
+    "longitude": -63.000000,
+    "search_location": {
+      "neighborhood": {
+        "id": "",
+        "name": ""
+      },
+      "city": {
+        "id": "TUxBQ0NBUGNiZGQx",
+        "name": "Córdoba"
+      },
+      "state": {
+        "id": "TUxBUENPUmFkZGIw",
+        "name": "Córdoba"
+      }
+    }
+  },
+  "seller_contact": {
+    "contact": "",
+    "other_info": "",
+    "area_code": "",
+    "phone": "",
+    "area_code2": "",
+    "phone2": "",
+    "email": "",
+    "webpage": ""
+  },
+  "location": {
+    "address_line": "Test",
+    "zip_code": "",
+    "neighborhood": {
+      "id": "",
+      "name": ""
+    },
+    "city": {
+      "id": "TUxBQ0NBUGNiZGQx",
+      "name": "Córdoba"
+    },
+    "state": {
+      "id": "TUxBUENPUmFkZGIw",
+      "name": "Córdoba"
+    },
+    "country": {
+      "id": "AR",
+      "name": "Argentina"
+    },
+    "latitude": -34.00000,
+    "longitude": -58.0000,
+    "open_hours": ""
+  },
+  "geolocation": {
+    "latitude": -34.00000,
+    "longitude": -58.00000
+  },
+  "coverage_areas": [],
+  "attributes": [
+    {
+      "id": "MLA1744-AIRACON",
+      "name": "Aire acondicionado",
+      "value_id": "",
+      "value_name": "Sí",
+      "attribute_group_id": "CONFORT",
+      "attribute_group_name": "Confort"
+    },
+    {
+      "id": "MLA1744-ASREGULA",
+      "name": "Asiento conductor regulable en altura",
+      "value_id": "",
+      "value_name": "Sí",
+      "attribute_group_id": "CONFORT",
+      "attribute_group_name": "Confort"
+    },
+    {
+      "id": "MLA1744-BLQCNTDOOR",
+      "name": "Cierre centralizado de puertas",
+      "value_id": "",
+      "value_name": "Sí",
+      "attribute_group_id": "CONFORT",
+      "attribute_group_name": "Confort"
+    },
+    {
+      "id": "MLA1744-COMBUS",
+      "name": "Combustible",
+      "value_id": "",
+      "value_name": "Nafta",
+      "attribute_group_id": "FIND",
+      "attribute_group_name": "Ficha técnica"
+    },
+    {
+      "id": "MLA1744-DOOR",
+      "name": "Cant. de puertas",
+      "value_id": "",
+      "value_name": "4",
+      "attribute_group_id": "FIND",
+      "attribute_group_name": "Ficha técnica"
+    },
+    {
+      "id": "MLA1744-KMTS",
+      "name": "Kilómetros",
+      "value_id": "",
+      "value_name": "0",
+      "attribute_group_id": "FIND",
+      "attribute_group_name": "Ficha técnica"
+    },
+    {
+      "id": "MLA1744-MARC",
+      "name": "Marca",
+      "value_id": "MLA1744-MARC-RENAULT",
+      "value_name": "Renault",
+      "attribute_group_id": "FIND",
+      "attribute_group_name": "Ficha técnica"
+    },
+    {
+      "id": "MLA1744-MODL",
+      "name": "Modelo",
+      "value_id": "MLA1744-MODL-DUSTER",
+      "value_name": "DUSTER OROCH",
+      "attribute_group_id": "FIND",
+      "attribute_group_name": "Ficha técnica"
+    },
+    {
+      "id": "MLA1744-YEAR",
+      "name": "Año",
+      "value_id": "",
+      "value_name": "2016",
+      "attribute_group_id": "FIND",
+      "attribute_group_name": "Ficha técnica"
+    },
+    {
+      "id": "MLA1744-ABS",
+      "name": "Frenos ABS",
+      "value_id": "",
+      "value_name": "Sí",
+      "attribute_group_id": "SECURITY",
+      "attribute_group_name": "Seguridad"
+    },
+    {
+      "id": "MLA1744-AIR1",
+      "name": "Airbag conductor",
+      "value_id": "",
+      "value_name": "Sí",
+      "attribute_group_id": "SECURITY",
+      "attribute_group_name": "Seguridad"
+    },
+    {
+      "id": "MLA1744-BLUETOOTH",
+      "name": "Bluetooth",
+      "value_id": "",
+      "value_name": "Sí",
+      "attribute_group_id": "SONIDO",
+      "attribute_group_name": "Sonido"
+    },
+    {
+      "id": "MLA1744-COMANDOSAT",
+      "name": "Comando satelital de stereo",
+      "value_id": "",
+      "value_name": "Sí",
+      "attribute_group_id": "SONIDO",
+      "attribute_group_name": "Sonido"
+    },
+    {
+      "id": "MLA1744-MP3",
+      "name": "MP3",
+      "value_id": "",
+      "value_name": "Sí",
+      "attribute_group_id": "SONIDO",
+      "attribute_group_name": "Sonido"
+    },
+    {
+      "id": "MLA1744-REPRODCD",
+      "name": "CD",
+      "value_id": "",
+      "value_name": "Sí",
+      "attribute_group_id": "SONIDO",
+      "attribute_group_name": "Sonido"
+    }
+  ],
+  "warnings": [],
+  "listing_source": "",
+  "variations": [],
+  "status": "closed",
+  "sub_status": [],
+  "tags": [],
+  "warranty": null,
+  "catalog_product_id": null,
+  "domain_id": null,
+  "parent_item_id": null,
+  "differential_pricing": null,
+  "deal_ids": [],
+  "automatic_relist": false,
+  "date_created": "1970-01-01T00:00:00.000+00:00",
+  "last_updated": "1970-01-01T00:00:00.000+00:00"
+}

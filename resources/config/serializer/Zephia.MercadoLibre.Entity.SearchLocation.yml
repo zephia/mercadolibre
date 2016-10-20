@@ -1,0 +1,9 @@
+Zephia\MercadoLibre\Entity\SearchLocation:
+  exclusion_policy: NONE
+  properties:
+    city:
+      type: "Zephia\\MercadoLibre\\Entity\\Localization"
+    neighborhood:
+      type: "Zephia\\MercadoLibre\\Entity\\Localization"
+    state:
+      type: "Zephia\\MercadoLibre\\Entity\\Localization"

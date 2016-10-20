@@ -1,0 +1,23 @@
+Zephia\MercadoLibre\Entity\Location:
+  exclusion_policy: NONE
+  properties:
+    address_line:
+      type: "string"
+    city:
+      type: "Zephia\\MercadoLibre\\Entity\\Localization"
+    country:
+      type: "Zephia\\MercadoLibre\\Entity\\Localization"
+    latitude:
+      type: "float"
+    longitude:
+      type: "float"
+    neighborhood:
+      type: "Zephia\\MercadoLibre\\Entity\\Localization"
+    open_hours:
+      type: "string"
+    search_location:
+      type: "Zephia\\MercadoLibre\\Entity\\SearchLocation"
+    state:
+      type: "Zephia\\MercadoLibre\\Entity\\Localization"
+    zip_code:
+      type: "string"

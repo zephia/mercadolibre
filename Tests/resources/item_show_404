@@ -1,0 +1,7 @@
+{
+  "message": "Item with id wrong_item_id not found.",
+  "error": "not_found",
+  "status": 404,
+  "cause": [
+  ]
+}

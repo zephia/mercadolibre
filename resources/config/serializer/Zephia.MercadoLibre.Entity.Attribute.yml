@@ -1,0 +1,15 @@
+Zephia\MercadoLibre\Entity\Attribute:
+  exclusion_policy: NONE
+  properties:
+    id:
+      type: "string"
+    attribute_group_id:
+      type: "string"
+    attribute_group_name:
+      type: "string"
+    name:
+      type: "string"
+    value_id:
+      type: "string"
+    value_name:
+      type: "string"

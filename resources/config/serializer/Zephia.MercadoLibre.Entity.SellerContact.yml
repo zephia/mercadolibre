@@ -1,0 +1,19 @@
+Zephia\MercadoLibre\Entity\SellerContact:
+  exclusion_policy: NONE
+  properties:
+    area_code:
+      type: "string"
+    area_code2:
+      type: "string"
+    contact:
+      type: "string"
+    email:
+      type: "string"
+    other_info:
+      type: "string"
+    phone:
+      type: "string"
+    phone2:
+      type: "string"
+    webpage:
+      type: "string"

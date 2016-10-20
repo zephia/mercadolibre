@@ -13,6 +13,7 @@ namespace Zephia\MercadoLibre\Client;
 use GuzzleHttp\Client as GuzzleClient;
 use JMS\Serializer\SerializerInterface;
 use Zephia\MercadoLibre\Entity\Category;
+use Zephia\MercadoLibre\Entity\Item;
 use Zephia\MercadoLibre\Entity\User;
 
 /**
@@ -75,6 +76,8 @@ class MercadoLibreClient
     }
 
     /**
+     * Set MercadoLibre Access Token
+     *
      * @param string $access_token
      *
      * @return $this
@@ -86,6 +89,8 @@ class MercadoLibreClient
     }
 
     /**
+     * Get MercadoLibre Access Token
+     *
      * @return string
      */
     public function getAccessToken()
@@ -136,6 +141,18 @@ class MercadoLibreClient
         return $this->serializer->deserialize(
             $response->getBody()->getContents(),
             "array<" . Category::class . ">",
+            'json'
+        );
+    }
+
+    public function itemShow($item_id)
+    {
+        $response = $this->getGuzzleClient()
+            ->get('/items/' . $item_id, $this->setQuery());
+
+        return $this->serializer->deserialize(
+            $response->getBody()->getContents(),
+            Item::class,
             'json'
         );
     }

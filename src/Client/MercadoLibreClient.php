@@ -99,7 +99,7 @@ class MercadoLibreClient
     }
 
     /**
-     * Show User resource
+     * User show resource
      *
      * @param $customer_id
      *
@@ -117,7 +117,7 @@ class MercadoLibreClient
     }
 
     /**
-     * Show User me resource
+     * User show me resource
      *
      * @return array|\JMS\Serializer\scalar|object
      */
@@ -127,7 +127,7 @@ class MercadoLibreClient
     }
 
     /**
-     * List Categories resource
+     * Category list resource
      *
      * @param $site_id string
      *
@@ -145,6 +145,13 @@ class MercadoLibreClient
         );
     }
 
+    /**
+     * Item Show resource
+     *
+     * @param $item_id
+     *
+     * @return array|\JMS\Serializer\scalar|object
+     */
     public function itemShow($item_id)
     {
         $response = $this->getGuzzleClient()

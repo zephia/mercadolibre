@@ -1,0 +1,6 @@
+{
+  "message": "body.required_fields",
+  "error": "The fields [listing_type_id, category_id] are required for requested call",
+  "status": 400,
+  "cause": []
+}

@@ -165,6 +165,28 @@ class MercadoLibreClient
     }
 
     /**
+     * Item create resource
+     *
+     * @param $item
+     *
+     * @return array|\JMS\Serializer\scalar|object
+     */
+    public function itemCreate($item)
+    {
+        $response = $this->getGuzzleClient()
+            ->post(
+                '/items',
+                array_merge($this->setQuery(), $this->setBody($item))
+            );
+
+        return $this->serializer->deserialize(
+            $response->getBody()->getContents(),
+            Item::class,
+            'json'
+        );
+    }
+
+    /**
      * Set query
      *
      * @param array $query
@@ -178,5 +200,18 @@ class MercadoLibreClient
             $defaults['access_token'] = $this->getAccessToken();
         }
         return ['query' => array_merge($defaults, $query)];
+    }
+
+    /**
+     * Set Json
+     *
+     * @param $object
+     *
+     * @return array
+     */
+    private function setBody($object)
+    {
+        $json = $this->serializer->serialize($object, 'json');
+        return ['body' => $json];
     }
 }

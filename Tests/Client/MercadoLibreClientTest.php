@@ -22,6 +22,7 @@ use Zephia\MercadoLibre\Entity\Description;
 use Zephia\MercadoLibre\Entity\Geolocation;
 use Zephia\MercadoLibre\Entity\Identification;
 use Zephia\MercadoLibre\Entity\ImmediatePayment;
+use Zephia\MercadoLibre\Entity\Item;
 use Zephia\MercadoLibre\Entity\Localization;
 use Zephia\MercadoLibre\Entity\Location;
 use Zephia\MercadoLibre\Entity\NotYetRated;
@@ -494,5 +495,98 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($item->automatic_relist);
         $this->assertEquals((new \DateTime('1970-01-01')), $item->date_created);
         $this->assertEquals((new \DateTime('1970-01-01')), $item->last_updated);
+    }
+
+    /**
+     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedExceptionMessage Client error: `POST https://api.mercadolibre.com/items` resulted in a `403 Forbidden`
+     */
+    public function testItemCreateEmptyAccessToken()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(403, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/item_create_403', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+        $client->itemCreate([]);;
+    }
+
+    /**
+     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedExceptionMessage Client error: `POST https://api.mercadolibre.com/items?access_token=bad_token` resulted in a `400 Bad Request`
+     */
+    public function testItemCreateWrongAccessToken()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(400, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/item_create_400', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+        $client->setAccessToken('bad_token')->itemCreate([]);
+    }
+
+    /**
+     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedExceptionMessage Client error: `POST https://api.mercadolibre.com/items?access_token=APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789` resulted in a `401 Unauthorized`
+     */
+    public function testItemCreateInvalidAccessToken()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(401, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/item_create_401', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+        $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->itemCreate([]);
+    }
+
+    /**
+     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedExceptionMessage Client error: `POST https://api.mercadolibre.com/items?access_token=APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789` resulted in a `400 Bad Request`
+     */
+    public function testItemCreateInvalidBody()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(400, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/item_create_400_body_invalid', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+        $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->itemCreate('');
+    }
+
+    /**
+     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedExceptionMessage Client error: `POST https://api.mercadolibre.com/items?access_token=APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789` resulted in a `400 Bad Request`
+     */
+    public function testItemCreate()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(400, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/item_create_400_body_required_fields', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+
+        $item = new Item();
+        $item->title = 'Test';
+        $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->itemCreate($item);
+    }
+
+    public function testItemCreateOk()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(201, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/item_create_201', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+
+        $item = new Item();
+        $item->title = 'Test';
+        $item->listing_type_id = 'free';
+        $item->category_id = 'MLA86379';
+        $item->currency_id = 'ARS';
+        $item->price = 10000;
+        $item->available_quantity = 1;
+        $item->condition = 'used';
+        $item = $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->itemCreate($item);
+        $this->assertEquals('MLA', $item->site_id);
     }
 }

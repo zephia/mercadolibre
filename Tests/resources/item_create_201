@@ -1,0 +1,110 @@
+{
+  "id": "MLA640038148",
+  "site_id": "MLA",
+  "title": "Test",
+  "subtitle": null,
+  "seller_id": 212624284,
+  "category_id": "MLA86379",
+  "official_store_id": null,
+  "price": 10000,
+  "base_price": 10000,
+  "original_price": null,
+  "currency_id": "ARS",
+  "initial_quantity": 1,
+  "available_quantity": 1,
+  "sold_quantity": 0,
+  "buying_mode": "buy_it_now",
+  "listing_type_id": "free",
+  "start_time": "2016-10-24T20:44:08.626Z",
+  "stop_time": "2016-12-23T20:44:08.626Z",
+  "end_time": "2016-12-23T20:44:08.626Z",
+  "expiration_time": null,
+  "condition": "used",
+  "permalink": "http://articulo.mercadolibre.com.ar/MLA-640038148-test-_JM",
+  "thumbnail": "",
+  "secure_thumbnail": "",
+  "pictures": [],
+  "video_id": null,
+  "descriptions": [],
+  "accepts_mercadopago": true,
+  "non_mercado_pago_payment_methods": [],
+  "shipping": 
+  {
+    "mode": "not_specified",
+    "local_pick_up": false,
+    "free_shipping": false,
+    "methods": [],
+    "dimensions": null,
+    "tags": []
+  },
+  "international_delivery_mode": "none",
+  "seller_address": 
+  {
+    "id": 183107240,
+    "comment": "",
+    "address_line": "Av.circunvalación esq. Santa Ana",
+    "zip_code": "5000",
+    "city": 
+    {
+      "id": "TUxBQ0NBUGNiZGQx",
+      "name": "Córdoba"
+    },
+    "state": 
+    {
+      "id": "AR-X",
+      "name": "Córdoba"
+    },
+    "country": 
+    {
+      "id": "AR",
+      "name": "Argentina"
+    },
+    "latitude": -32.408624,
+    "longitude": -63.211006,
+    "search_location": 
+    {
+      "neighborhood": 
+      {
+        "id": "",
+        "name": ""
+      },
+      "city": 
+      {
+        "id": "TUxBQ0NBUGNiZGQx",
+        "name": "Córdoba"
+      },
+      "state":
+      {
+        "id": "TUxBUENPUmFkZGIw",
+        "name": "Córdoba"
+      }
+    }
+  },
+  "seller_contact": null,
+  "location": 
+  {
+  },
+  "geolocation": 
+  {
+    "latitude": -32.408624,
+    "longitude": -63.211006
+  },
+  "coverage_areas": [],
+  "attributes": [],
+  "warnings": [],
+  "listing_source": "",
+  "variations": [],
+  "status": "active",
+  "sub_status": [],
+  "tags": [],
+  "warranty": null,
+  "catalog_product_id": null,
+  "domain_id": null,
+  "seller_custom_field": null,
+  "parent_item_id": null,
+  "differential_pricing": null,
+  "deal_ids": [],
+  "automatic_relist": false,
+  "date_created": "2016-10-24T20:44:08.741Z",
+  "last_updated": "2016-10-24T20:44:08.741Z"
+}

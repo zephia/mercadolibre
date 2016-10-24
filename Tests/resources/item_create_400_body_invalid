@@ -1,0 +1,6 @@
+{
+  "message": "body.invalid",
+  "error": "A body is expected. (B)",
+  "status": 400,
+  "cause": []
+}

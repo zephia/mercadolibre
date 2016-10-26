@@ -24,7 +24,9 @@ use Zephia\MercadoLibre\Entity\User;
  */
 class MercadoLibreClient
 {
-    // Mercado Libre API URI.
+    /**
+     * Mercado Libre API URI.
+     */
     const BASE_URI = 'https://api.mercadolibre.com';
 
     /**

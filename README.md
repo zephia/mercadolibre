@@ -9,7 +9,7 @@
 
 ## Documentation
 
-Official documentation on how to use the MercadoLibre API can be found on
+Official documentation and how to use the MercadoLibre API can be found at
 [http://developers.mercadolibre.com/api-docs/](http://developers.mercadolibre.com/api-docs/)
 
 ## Installation

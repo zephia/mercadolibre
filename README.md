@@ -41,140 +41,260 @@ $ml_response = $client->showUser(1);
 
 var_dump($ml_response);
 
-//object(Zephia\MercadoLibre\Entity\User)#92 (27) {
-//["id"]=>
-//  int(1)
-//  ["address"]=>
-//  object(Zephia\MercadoLibre\Entity\Address)#86 (4) {
-//  ["address"]=>
-//    NULL
-//    ["city"]=>
-//    NULL
-//    ["state"]=>
-//    NULL
-//    ["zip_code"]=>
-//    NULL
-//  }
-//  ["alternative_phone"]=>
-//  NULL
-//  ["bill_data"]=>
-//  NULL
-//  ["buyer_reputation"]=>
-//  object(Zephia\MercadoLibre\Entity\BuyerReputation)#72 (3) {
-//  ["canceled_transactions"]=>
-//    NULL
-//    ["tags"]=>
-//    array(0) {
-//}
-//    ["transactions"]=>
-//    NULL
-//  }
-//  ["company"]=>
-//  NULL
-//  ["context"]=>
-//  NULL
-//  ["country_id"]=>
-//  string(2) "CL"
-//["credit"]=>
-//  NULL
-//  ["email"]=>
-//  NULL
-//  ["first_name"]=>
-//  NULL
-//  ["identification"]=>
-//  NULL
-//  ["last_name"]=>
-//  NULL
-//  ["logo"]=>
-//  NULL
-//  ["nickname"]=>
-//  string(16) "NICTRAFFICGENER1"
-//["permalink"]=>
-//  string(46) "http://perfil.mercadolibre.cl/NICTRAFFICGENER1"
-//["phone"]=>
-//  NULL
-//  ["points"]=>
-//  int(0)
-//  ["registration_date"]=>
-//  object(DateTime)#162 (3) {
-//  ["date"]=>
-//    string(26) "2011-09-05 12:00:00.000000"
-//["timezone_type"]=>
-//    int(1)
-//    ["timezone"]=>
-//    string(6) "-04:00"
-//  }
-//  ["secure_email"]=>
-//  NULL
-//  ["seller_experience"]=>
-//  NULL
-//  ["seller_reputation"]=>
-//  object(Zephia\MercadoLibre\Entity\SellerReputation)#166 (3) {
-//  ["level_id"]=>
-//    NULL
-//    ["power_seller_status"]=>
-//    NULL
-//    ["transactions"]=>
-//    object(Zephia\MercadoLibre\Entity\SellerTransaction)#181 (5) {
-//    ["canceled"]=>
-//      int(0)
-//      ["completed"]=>
-//      int(0)
-//      ["period"]=>
-//      string(8) "historic"
-//["ratings"]=>
-//      object(Zephia\MercadoLibre\Entity\Rating)#196 (3) {
-//      ["negative"]=>
-//        int(0)
-//        ["neutral"]=>
-//        int(0)
-//        ["positive"]=>
-//        int(0)
-//      }
-//      ["total"]=>
-//      int(0)
-//    }
-//  }
-//  ["shipping_modes"]=>
-//  NULL
-//  ["site_id"]=>
-//  string(3) "MLC"
-//["status"]=>
-//  object(Zephia\MercadoLibre\Entity\Status)#218 (12) {
-//  ["billing"]=>
-//    NULL
-//    ["buy"]=>
-//    NULL
-//    ["confirmed_email"]=>
-//    NULL
-//    ["immediate_payment"]=>
-//    NULL
-//    ["list"]=>
-//    NULL
-//    ["mercadoenvios"]=>
-//    NULL
-//    ["mercadopago_account_type"]=>
-//    NULL
-//    ["mercadopago_tc_accepted"]=>
-//    NULL
-//    ["required_action"]=>
-//    NULL
-//    ["sell"]=>
-//    NULL
-//    ["site_status"]=>
-//    string(8) "deactive"
-//["user_type"]=>
-//    NULL
-//  }
-//  ["tags"]=>
-//  array(2) {
-//    [0]=>
-//    string(6) "normal"
-//    [1]=>
-//    string(9) "test_user"
-//  }
-//  ["user_type"]=>
-//  string(6) "normal"
-//}
+//object(Zephia\MercadoLibre\Entity\User)
 
 ```
+
+## MercadoLibre API resources:
+
+### Users & Apps
+
+* ~~`/users/{Cust_id}?access_token=$ACCESS_TOKEN` User account information. GET PUT~~
+
+    Get user information.
+
+    Update user information
+
+* ~~`/users/me` Returns account information about the authenticated user. GET~~
+
+    Get information about the authenticated in user.
+
+* ~~`/users/{Cust_id}/addresses?access_token=$ACCESS_TOKEN` Returns addresses registered by the user. GET~~
+
+    Get user addresses.
+
+* ~~`/users/{Cust_id}/accepted_payment_methods` Returns payment methods accepted by a seller to collect its operations. GET~~
+
+    Get accepted payment methods by user.
+
+* ~~`/applications/{application_id}?ACCESS_TOKEN` Returns information about the application. GET~~
+
+    Get application details.
+
+* ~~`/users/{User_id}/brands` This resource retrieves brands associated to an user_id. The official_store_id attribute identifies a store. GET~~
+
+    Get brands by user.
+
+* ~~`/users/{User_id}/classifieds_promotion_packs?access_token=$ACCESS_TOKEN` Manage user promotion packs. GET POST~~
+
+    Get promotions packs engaged by user.
+
+    Creates a new Promotion Pack for the user.
+
+* ~~`/users/{user_id}/classifieds_promotion_packs/{listing_type}&categoryId={category_id}?acces_token=$ACCESS_TOKEN` Availability for the user to list under a given Listing Type and category according to packages engaged. GET
+
+    Get the availability Listing Type availability by user and category.
+
+* ~~`/projects?access_token=$ACCESS_TOKEN` Manage projects. GET POST PUT DELETE~~
+
+    Get all applications associated to a project
+
+    Create a new project.
+
+    Update a project.
+
+    Remove a project.
+
+* ~~`/projects/{Project_id}/applications?access_token=ACCESS_TOKEN_APP_OWNER` Manage applications & projects. POST DELETE~~
+
+    Save an application under your project.
+
+    Remove an application from your project.
+
+* ~~`/users/{Cust_id}/available_listing_types?category_id={Category_id}&access_token=$ACCESS_TOKEN` Listing types availability by user and category. GET~~
+
+    Get available listing types.
+
+* ~~`/users/{Cust_id}/available_listing_type/{listing_type_id}?category_id={Category_id}&access_token=$ACCESS_TOKEN` Retrieves availability to list under a listing type for a given category. GET
+
+    Get category availability.
+
+* ~~`/users/{User_id}/applications/{App_id}?access_token=$ACCESS_TOKEN` Application permissions. DELETE~~
+
+    Revoke permissions to an application.
+
+* ~~`/myfeeds?app_id={App_id}` Notifications history. GET~~
+
+    Get historic of notifications by App.
+
+### Categories & Listings
+
+* ~~`/sites` Retrieves information about the sites where MercadoLibre runs. GET~~
+
+    Get all sites.
+
+* ~~`/site_domains/{Site_domain_url}` Returns information about the domain. GET~~
+
+    Get domain information.
+
+* ~~`/sites/{Site_id}/listing_types` Returns information about listing types. GET~~
+
+    Get listing types by site.
+
+* ~~`/sites/{Site_id}/listing_exposures` Returns different exposure levels associated with all listing types in MercadoLibre. GET~~
+
+    Get listing exposures by site.
+
+* ~~`/sites/{Site_id}/listing_prices?price={Price}` Returns the listing price for selling and buying in MercadoLibre. GET~~
+
+    Get listing prices.
+
+* `/sites/{Site_id}/categories` Returns available categories in the site. GET
+
+    Get the category tree by site
+    ```php
+    $client->categoriesList();
+    ```
+
+* ~~`/categories/{Category_id}` Returns information about a category. GET~~
+
+    Get category details.
+
+* ~~`/categories/{Category_id}/attributes` Displays attributes and rules over them in order to describe the items that are stored in each category. GET~~
+
+    Get category attributes.
+
+* ~~`/sites/{Site_id}/category_predictor/predict` Category predictor. Retrieves the most accurate category to list your item basing on it’s title. GET~~
+
+    Predict category.
+
+* ~~`/categories/{Category_id}/classifieds_promotion_packs` Retrieves classified promotion packs by category. GET~~
+
+    Get classified promotion packs by category
+
+### Locations & Currencies
+
+* ~~`/countries` Returns countries information. GET~~
+
+    Get information about countries.
+
+* ~~`/countries/{Country_id}` Returns country information by country_id. GET~~
+
+    Get country detail
+
+* ~~`/states/{State_id}` Returns state information. GET~~
+
+    Get state information.
+
+* ~~`/cities/{City_id}` Returns city information. GET~~
+
+    Get city information.
+
+* ~~`/currencies` Returns information about all available currencies in MercadoLibre. GET~~
+
+    Get currencies information.
+
+* ~~`/currencies/{Currency_id}` Returns information about available currencies in MercadoLibre by currency_id. GET~~
+
+    Get currency details.
+
+* ~~`/currency_conversions/search?from={Currency_id}&to={Currency_id}` Retrieves the conversion ratio between currencies that MercadoLibre uses in calculations. GET~~
+
+    Get ratio conversion between currencies.
+
+* ~~`/countries/{Country_id}/zip_codes/{Zip_code}` Retrieves data for the location of the zip code entered. GET~~
+
+    Get location information by zip code.
+
+* ~~`/country/{Country_id}/zip_codes/search_between?zip_code_from={zip_code_from}&zip_code_to={zip_code_to}` Retrieve all zip codes for a country_id between two given zip codes. GET~~
+
+    Get all zip codes between two given values of zip codes.
+
+### Items & Searches
+
+* ~~`/items` Allows listing items. POST~~
+
+    List an item in MercadoLibre.
+
+* ~~`/items/{Item_id}` Allows managing listings GET PUT~~
+
+    Get item details.
+
+    Update an item.
+
+* ~~`/items/validate` Validate the JSON before posting an item. POST~~
+
+    Validate your JSON.
+
+* ~~`/items/{Item_id}/available_upgrades` Returns available listing types to upgrade an item posure. GET~~
+
+    Get available upgrades.
+
+* ~~`/items/{Item_id}/relist` Allows to relist an item. GET~~
+
+    Relist your item.
+
+* ~~`/items/{Item_id}/pictures/{picture_id}` Manage item pictures. GET DELETE~~
+
+    Get pictures in all it sizes.
+
+    Delete a picture.
+
+* ~~`/items/{Item_id}/pictures` Add and update pictures on your item. GET PUT~~
+
+    Post a picture.
+
+    Update items pictures.
+
+* ~~`/items/{Item_id}/description` Manage description for an item. GET PUT~~
+
+    Get item description.
+
+    Update item description.
+
+* ~~`/sites/{Site_id}/search?q=ipod` Retrieves items from a search query. GET~~
+
+    METHOD DESCRIPTION
+
+* ~~`/sites/{Site_id}/searchUrl?q=ipod` Search for any item in MercadoLibre. It will return an array of items url that match the search criteria. GET~~
+
+    Search items Url by query.
+
+* ~~`/sites/MLA/search?category={Category_id}&official_store_id=all` Search for all items listed by Official Stores for a given category. GET~~
+
+    Search Official Store items.
+
+* ~~`/sites/{Site_id}/hot_items/search?limit=5&category={Category_id}` Retrieves an array of hot items from a specified category by parameter. Works only with the first level of categories. GET~~
+
+    Search hot items.
+
+* ~~`/sites/{Site_id}/featured_items/HP-{Category_Id}` Retrieves an array of featured items. The featured items are items that have a special posure at home page or categories page. You can use only HP for products of home or HP-{categId} for featured by category. Only works with first level of categories. GET~~
+
+    Get items featured on the home by it’s category.
+
+* ~~`/sites/{Site_id}/trends/search?category={Category_id}` Retrieve an array of the trends items from the category specified by parameter. GET~~
+
+    Get trends by category
+
+* ~~`/sites/{Site_id}/search?seller_id={Seller_id}&category={Category_id}&access_token=$ACCESS_TOKEN` Search items by seller_id for a category. GET~~
+
+    Get items by seller id and cateogyr id.
+
+* ~~`/users/{Cust_id}/items/search?access_token=$ACCESS_TOKEN` Retrieves user’s listings. GET~~
+
+    Get user’s listings
+
+* ~~`/items/{Item_id}/product_identifiers/` Retrieves the product identifier codes associated to your item. GET PUT~~
+
+    Get item product identifiers.
+
+    Update product identifiers
+
+* ~~`/items/{Item_id}/variations` Manage item’s variations. GET POST~~
+
+    Get item’s variations.
+
+    Create a variation for your item.
+
+* ~~`/items/{Item_id}/variations/{Variation_id}` Manage variations. GET PUT DELETE~~
+
+    Get variation details.
+
+    Update a variation.
+
+    Delete a variation.
+
+* ~~`/users/{Cust_id}/items/search?sku={seller_custom_field}&status=active&access_token=$ACCESS_TOKEN` Search item by SKU. Filter item by status. GET~~
+
+    Search item by SKU.
+    Filter item by status.

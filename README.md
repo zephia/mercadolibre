@@ -81,7 +81,7 @@ var_dump($ml_response);
 
     Creates a new Promotion Pack for the user.
 
-* ~~`/users/{user_id}/classifieds_promotion_packs/{listing_type}&categoryId={category_id}?acces_token=$ACCESS_TOKEN` Availability for the user to list under a given Listing Type and category according to packages engaged. GET
+* ~~`/users/{user_id}/classifieds_promotion_packs/{listing_type}&categoryId={category_id}?acces_token=$ACCESS_TOKEN` Availability for the user to list under a given Listing Type and category according to packages engaged. GET~~
 
     Get the availability Listing Type availability by user and category.
 

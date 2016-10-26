@@ -105,7 +105,7 @@ var_dump($ml_response);
 
     Get available listing types.
 
-* ~~`/users/{Cust_id}/available_listing_type/{listing_type_id}?category_id={Category_id}&access_token=$ACCESS_TOKEN` Retrieves availability to list under a listing type for a given category. GET
+* ~~`/users/{Cust_id}/available_listing_type/{listing_type_id}?category_id={Category_id}&access_token=$ACCESS_TOKEN` Retrieves availability to list under a listing type for a given category. GET~~
 
     Get category availability.
 

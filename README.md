@@ -47,6 +47,8 @@ var_dump($ml_response);
 
 ## MercadoLibre API resources:
 
+Overstriked resources are not available yet in this package.
+
 ### Users & Apps
 
 * ~~`/users/{Cust_id}?access_token=$ACCESS_TOKEN` User account information. GET PUT~~

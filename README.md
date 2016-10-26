@@ -47,7 +47,7 @@ var_dump($ml_response);
 
 ## MercadoLibre API resources:
 
-Overstriked resources are not available yet in this package.
+Overstriked resources are not available yet in this package. Contributions will be appreciated.
 
 ### Users & Apps
 

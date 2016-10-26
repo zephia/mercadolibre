@@ -41,6 +41,8 @@ use Zephia\MercadoLibre\Entity\Unrated;
 
 class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
 {
+    const DUMMY_ACCESS_TOKEN = 'APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789';
+
     private $serializer;
 
     public function setUp()
@@ -68,7 +70,7 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedException \GuzzleHttp\Exception\ClientException
      * @expectedExceptionMessage Client error: `GET https://api.mercadolibre.com/users/a` resulted in a `400 Bad Request`
      */
     public function testUserShowWrongParam()
@@ -82,7 +84,7 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedException \GuzzleHttp\Exception\ClientException
      * @expectedExceptionMessage Client error: `GET https://api.mercadolibre.com/users/-2` resulted in a `404 Not Found`
      */
     public function testUserShowNonExistentUser()
@@ -136,7 +138,7 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedException \GuzzleHttp\Exception\ClientException
      * @expectedExceptionMessage Client error: `GET https://api.mercadolibre.com/users/1?access_token=bad_token` resulted in a `400 Bad Request`
      */
     public function testUserShowWrongAccessToken()
@@ -150,7 +152,7 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedException \GuzzleHttp\Exception\ClientException
      * @expectedExceptionMessage Client error: `GET https://api.mercadolibre.com/users/1?access_token=APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789` resulted in a `401 Unauthorized`
      */
     public function testUserShowInvalidAccessToken()
@@ -160,7 +162,7 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
             new Response(401, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/user_show_private_401', 'r')))
         ]);
         $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
-        $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->userShow(1);
+        $client->setAccessToken(self::DUMMY_ACCESS_TOKEN)->userShow(1);
     }
 
     public function testUserShowAccessTokenOk()
@@ -170,7 +172,7 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
             new Response(200, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/user_show_private_200', 'r')))
         ]);
         $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
-        $item = $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->userShow(1);
+        $item = $client->setAccessToken(self::DUMMY_ACCESS_TOKEN)->userShow(1);
         $this->assertEquals(1, $item->id);
         $this->assertEquals('TEST', $item->nickname);
         $this->assertEquals((new \DateTime('1970-01-01')), $item->registration_date);
@@ -282,7 +284,7 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedException \GuzzleHttp\Exception\ClientException
      * @expectedExceptionMessage Client error: `GET https://api.mercadolibre.com/users/me?access_token=bad_token` resulted in a `400 Bad Request`
      */
     public function testUserShowMeWrongAccessToken()
@@ -296,7 +298,7 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedException \GuzzleHttp\Exception\ClientException
      * @expectedExceptionMessage Client error: `GET https://api.mercadolibre.com/users/me?access_token=APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789` resulted in a `401 Unauthorized`
      */
     public function testUserShowMeInvalidAccessToken()
@@ -306,7 +308,7 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
             new Response(401, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/user_show_private_401', 'r')))
         ]);
         $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
-        $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->userShowMe();
+        $client->setAccessToken(self::DUMMY_ACCESS_TOKEN)->userShowMe();
     }
 
     public function testUserShowMeAccessTokenOk()
@@ -316,12 +318,12 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
             new Response(200, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/user_show_private_200', 'r')))
         ]);
         $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
-        $item = $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->userShowMe();
+        $item = $client->setAccessToken(self::DUMMY_ACCESS_TOKEN)->userShowMe();
         $this->assertEquals(1, $item->id);
     }
 
     /**
-     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedException \GuzzleHttp\Exception\ClientException
      * @expectedExceptionMessage Client error: `GET https://api.mercadolibre.com/sites/wrong_site_id/categories` resulted in a `404 Not Found`
      */
     public function testCategoryListWrongSiteId()
@@ -350,7 +352,7 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedException \GuzzleHttp\Exception\ClientException
      * @expectedExceptionMessage Client error: `GET https://api.mercadolibre.com/items/wrong_item_id` resulted in a `404 Not Found`
      */
     public function testItemShowWrongId()
@@ -498,7 +500,7 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedException \GuzzleHttp\Exception\ClientException
      * @expectedExceptionMessage Client error: `POST https://api.mercadolibre.com/items` resulted in a `403 Forbidden`
      */
     public function testItemCreateEmptyAccessToken()
@@ -508,11 +510,11 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
             new Response(403, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/item_create_403', 'r')))
         ]);
         $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
-        $client->itemCreate([]);;
+        $client->itemCreate((new Item));
     }
 
     /**
-     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedException \GuzzleHttp\Exception\ClientException
      * @expectedExceptionMessage Client error: `POST https://api.mercadolibre.com/items?access_token=bad_token` resulted in a `400 Bad Request`
      */
     public function testItemCreateWrongAccessToken()
@@ -522,11 +524,11 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
             new Response(400, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/item_create_400', 'r')))
         ]);
         $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
-        $client->setAccessToken('bad_token')->itemCreate([]);
+        $client->setAccessToken('bad_token')->itemCreate((new Item));
     }
 
     /**
-     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedException \GuzzleHttp\Exception\ClientException
      * @expectedExceptionMessage Client error: `POST https://api.mercadolibre.com/items?access_token=APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789` resulted in a `401 Unauthorized`
      */
     public function testItemCreateInvalidAccessToken()
@@ -536,11 +538,12 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
             new Response(401, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/item_create_401', 'r')))
         ]);
         $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
-        $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->itemCreate([]);
+        $client->setAccessToken(self::DUMMY_ACCESS_TOKEN)
+            ->itemCreate((new Item));
     }
 
     /**
-     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedException \GuzzleHttp\Exception\ClientException
      * @expectedExceptionMessage Client error: `POST https://api.mercadolibre.com/items?access_token=APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789` resulted in a `400 Bad Request`
      */
     public function testItemCreateInvalidBody()
@@ -550,14 +553,15 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
             new Response(400, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/item_create_400_body_invalid', 'r')))
         ]);
         $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
-        $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->itemCreate('');
+        $client->setAccessToken(self::DUMMY_ACCESS_TOKEN)
+            ->itemCreate((new Item));
     }
 
     /**
-     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedException \GuzzleHttp\Exception\ClientException
      * @expectedExceptionMessage Client error: `POST https://api.mercadolibre.com/items?access_token=APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789` resulted in a `400 Bad Request`
      */
-    public function testItemCreate()
+    public function testItemCreateMissingRequiredFields()
     {
         $client = new MercadoLibreClient([], $this->serializer);
         $mock = new MockHandler([
@@ -567,7 +571,8 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
 
         $item = new Item();
         $item->title = 'Test';
-        $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->itemCreate($item);
+        $client->setAccessToken(self::DUMMY_ACCESS_TOKEN)
+            ->itemCreate($item);
     }
 
     public function testItemCreateOk()
@@ -586,7 +591,8 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
         $item->price = 10000;
         $item->available_quantity = 1;
         $item->condition = 'used';
-        $item = $client->setAccessToken('APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789')->itemCreate($item);
+        $item = $client->setAccessToken(self::DUMMY_ACCESS_TOKEN)
+            ->itemCreate($item);
         $this->assertEquals('MLA', $item->site_id);
     }
 }

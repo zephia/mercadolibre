@@ -49,7 +49,6 @@ Zephia\MercadoLibre\Entity\Item:
       type: "string"
     location:
       type: "Zephia\\MercadoLibre\\Entity\\Location"
-      type: "Zephia\\MercadoLibre\\Entity\\Location"
     non_mercado_pago_payment_methods:
       type: "array"
     official_store_id:

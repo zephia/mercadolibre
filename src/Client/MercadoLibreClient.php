@@ -167,11 +167,11 @@ class MercadoLibreClient
     /**
      * Item create resource
      *
-     * @param $item
+     * @param Item $item
      *
      * @return array|\JMS\Serializer\scalar|object
      */
-    public function itemCreate($item)
+    public function itemCreate(Item $item)
     {
         $response = $this->getGuzzleClient()
             ->post(

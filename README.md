@@ -7,7 +7,7 @@
 [![Total Downloads](https://poser.pugx.org/zephia/mercadolibre/downloads)](https://packagist.org/packages/zephia/mercadolibre)
 [![License](https://poser.pugx.org/zephia/mercadolibre/license)](https://packagist.org/packages/zephia/mercadolibre)
 
-## Documentation Mercado Libre
+## Documentation
 
 Official documentation on how to use the MercadoLibre API can be found on
 [http://developers.mercadolibre.com/api-docs/](http://developers.mercadolibre.com/api-docs/)
@@ -41,7 +41,7 @@ $ml_response = $client->showUser(1);
 
 var_dump($ml_response);
 
-//object(Zephia\MercadoLibre\Entity\User)
+// object(Zephia\MercadoLibre\Entity\User)
 
 ```
 

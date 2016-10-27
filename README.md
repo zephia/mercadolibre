@@ -204,13 +204,22 @@ Overstriked resources are not available yet in this package. Contributions will 
 
 ### Items & Searches
 
-* ~~`/items` Allows listing items. POST~~
+* `/items` Allows listing items. POST
 
     List an item in MercadoLibre.
+    
+    ```php
+    $item = new Zephia\MercadoLibre\Entity\Item;
+    $client->itemCreate($item);
+    ```
 
-* ~~`/items/{Item_id}` Allows managing listings GET PUT~~
+* `/items/{Item_id}` Allows managing listings GET PUT
 
     Get item details.
+    
+    ```php
+    $client->itemShow('MLA123123');
+    ```
 
     Update an item.
 

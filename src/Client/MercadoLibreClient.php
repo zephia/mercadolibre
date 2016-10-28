@@ -25,9 +25,19 @@ use Zephia\MercadoLibre\Entity\User;
 class MercadoLibreClient
 {
     /**
-     * Mercado Libre API URI.
+     * MercadoLibre API URI.
      */
     const BASE_URI = 'https://api.mercadolibre.com';
+
+    /**
+     * MercadoLibre Authorization URI.
+     */
+    const AUTH_URI = 'http://auth.mercadolibre.com/authorization';
+
+    /**
+     * MercadoLibre OAuth URI.
+     */
+    const OAUTH_URI = '/oauth/token';
 
     /**
      * Guzzle Client
@@ -114,7 +124,8 @@ class MercadoLibreClient
 
         return $this->serializer->deserialize(
             $response->getBody()->getContents(),
-            User::class, 'json'
+            User::class,
+            'json'
         );
     }
 

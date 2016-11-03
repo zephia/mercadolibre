@@ -11,6 +11,7 @@
 namespace Zephia\MercadoLibre\Client;
 
 use GuzzleHttp\Client as GuzzleClient;
+use GuzzleHttp\ClientInterface;
 use JMS\Serializer\SerializerInterface;
 use Zephia\MercadoLibre\Entity\Category;
 use Zephia\MercadoLibre\Entity\Item;
@@ -218,13 +219,14 @@ class MercadoLibreClient
     /**
      * Set Json
      *
-     * @param $object
+     * @param object $object
      *
      * @return array
      */
     private function setBody($object)
     {
+        $postKey = (version_compare(ClientInterface::VERSION, '6') === 1) ? 'body' : 'form_params';
         $json = $this->serializer->serialize($object, 'json');
-        return ['body' => $json];
+        return [$postKey => $json];
     }
 }

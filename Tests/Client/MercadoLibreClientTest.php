@@ -510,7 +510,8 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
             new Response(403, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/item_create_403', 'r')))
         ]);
         $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
-        $client->itemCreate((new Item));
+        $item = new Item;
+        $client->itemCreate($item);
     }
 
     /**

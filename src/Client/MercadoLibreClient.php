@@ -71,7 +71,10 @@ class MercadoLibreClient
         array $config = [],
         SerializerInterface $serializer
     ) {
-        $defaults = ['base_uri' => self::BASE_URI];
+        $defaults = [
+            'base_uri' => self::BASE_URI,
+            'base_url' => self::BASE_URI,
+        ];
         $config = array_merge($defaults, $config);
 
         $this->guzzleClient = new GuzzleClient($config);

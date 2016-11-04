@@ -284,6 +284,10 @@ Overstriked resources are not available yet in this package. Contributions will 
 * ~~`/users/{Cust_id}/items/search?access_token=$ACCESS_TOKEN` Retrieves user’s listings. GET~~
 
     Get user’s listings
+    
+    ```php
+    $client->setAccessToken(ACCESS_TOKEN)->itemList('user_id');
+    ```
 
 * ~~`/items/{Item_id}/product_identifiers/` Retrieves the product identifier codes associated to your item. GET PUT~~
 

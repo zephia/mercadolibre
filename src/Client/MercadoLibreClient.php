@@ -163,6 +163,13 @@ class MercadoLibreClient
         );
     }
 
+    /**
+     * Item List resource
+     *
+     * @param $user_id string
+     *
+     * @return array|\JMS\Serializer\scalar|object
+     */
     public function itemList($user_id)
     {
         $response = $this->getGuzzleClient()

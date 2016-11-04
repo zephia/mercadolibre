@@ -15,6 +15,7 @@ use GuzzleHttp\ClientInterface;
 use JMS\Serializer\SerializerInterface;
 use Zephia\MercadoLibre\Entity\Category;
 use Zephia\MercadoLibre\Entity\Item;
+use Zephia\MercadoLibre\Entity\ItemList;
 use Zephia\MercadoLibre\Entity\User;
 
 /**
@@ -158,6 +159,18 @@ class MercadoLibreClient
         return $this->serializer->deserialize(
             $response->getBody()->getContents(),
             "array<" . Category::class . ">",
+            'json'
+        );
+    }
+
+    public function itemList($user_id)
+    {
+        $response = $this->getGuzzleClient()
+            ->get('/users/' . $user_id . '/items/search', $this->setQuery());
+
+        return $this->serializer->deserialize(
+            $response->getBody()->getContents(),
+            ItemList::class,
             'json'
         );
     }

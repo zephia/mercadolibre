@@ -1,0 +1,369 @@
+{
+  "seller_id": "12345678",
+  "query": null,
+  "paging": {
+    "total": 18,
+    "offset": 0,
+    "limit": 50
+  },
+  "results": [
+    "MLA618881478",
+    "MLA618881654",
+    "MLA618880843",
+    "MLA618880983",
+    "MLA618881060",
+    "MLA618881410",
+    "MLA618881603",
+    "MLA618881305",
+    "MLA620531342",
+    "MLA639264860",
+    "MLA639268632",
+    "MLA639270636",
+    "MLA639272665",
+    "MLA639273808",
+    "MLA639276798",
+    "MLA639524630",
+    "MLA640021687",
+    "MLA640022503"
+  ],
+  "orders": [
+    {
+      "id": "stop_time_asc",
+      "name": "Order by stop time ascending"
+    }
+  ],
+  "filters": [],
+  "available_orders": [
+    {
+      "id": "stop_time_asc",
+      "name": "Order by stop time ascending"
+    },
+    {
+      "id": "stop_time_desc",
+      "name": "Order by stop time descending"
+    },
+    {
+      "id": "start_time_asc",
+      "name": "Order by start time ascending"
+    },
+    {
+      "id": "start_time_desc",
+      "name": "Order by start time descending"
+    },
+    {
+      "id": "available_quantity_asc",
+      "name": "Order by available quantity ascending"
+    },
+    {
+      "id": "available_quantity_desc",
+      "name": "Order by available quantity descending"
+    },
+    {
+      "id": "sold_quantity_asc",
+      "name": "Order by sold quantity ascending"
+    },
+    {
+      "id": "sold_quantity_desc",
+      "name": "Order by sold quantity descending"
+    },
+    {
+      "id": "price_asc",
+      "name": "Order by price ascending"
+    },
+    {
+      "id": "price_desc",
+      "name": "Order by price descending"
+    },
+    {
+      "id": "last_updated_desc",
+      "name": "Order by lastUpdated ascending"
+    },
+    {
+      "id": "last_updated_asc",
+      "name": "Order by last updated descending"
+    }
+  ],
+  "available_filters": [
+    {
+      "id": "status",
+      "name": "Status",
+      "values": [
+        {
+          "id": "pending",
+          "name": "Inactive items for debt or MercadoLibre policy violation",
+          "results": 0
+        },
+        {
+          "id": "not_yet_active",
+          "name": "Items newly created or pending activation",
+          "results": 0
+        },
+        {
+          "id": "programmed",
+          "name": "Items scheduled for future activation",
+          "results": 0
+        },
+        {
+          "id": "active",
+          "name": "Active items",
+          "results": 9
+        },
+        {
+          "id": "paused",
+          "name": "Paused Items",
+          "results": 0
+        },
+        {
+          "id": "closed",
+          "name": "Closed Items",
+          "results": 9
+        }
+      ]
+    },
+    {
+      "id": "sub_status",
+      "name": "Substatus",
+      "values": [
+        {
+          "id": "deleted",
+          "name": "Deleted substatus",
+          "results": 0
+        },
+        {
+          "id": "forbidden",
+          "name": "Forbidden substatus",
+          "results": 0
+        },
+        {
+          "id": "freezed",
+          "name": "Freezed substatus",
+          "results": 0
+        },
+        {
+          "id": "held",
+          "name": "Held substatus",
+          "results": 0
+        },
+        {
+          "id": "suspended",
+          "name": "Suspended substatus",
+          "results": 0
+        },
+        {
+          "id": "waiting_for_patch",
+          "name": "Waiting for patch substatus",
+          "results": 0
+        },
+        {
+          "id": "warning",
+          "name": "Warning items with MercadoLibre policy violation",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "buying_mode",
+      "name": "Buying Mode",
+      "values": [
+        {
+          "id": "buy_it_now",
+          "name": "Buy it now",
+          "results": 0
+        },
+        {
+          "id": "classified",
+          "name": "Classified",
+          "results": 18
+        },
+        {
+          "id": "auction",
+          "name": "Auction",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "listing_type_id",
+      "name": "Listing type",
+      "values": [
+        {
+          "id": "gold_pro",
+          "name": "Gold proffesional",
+          "results": 0
+        },
+        {
+          "id": "gold_special",
+          "name": "Gold special",
+          "results": 0
+        },
+        {
+          "id": "gold_premium",
+          "name": "Gold premium",
+          "results": 6
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "results": 8
+        },
+        {
+          "id": "silver",
+          "name": "Silver",
+          "results": 4
+        },
+        {
+          "id": "bronze",
+          "name": "Bronze",
+          "results": 0
+        },
+        {
+          "id": "free",
+          "name": "Free",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "shipping_free_methods",
+      "name": "Shipping free methods",
+      "values": []
+    },
+    {
+      "id": "shipping_tags",
+      "name": "Shipping Tags",
+      "values": []
+    },
+    {
+      "id": "listing_source",
+      "name": "Listing Source",
+      "values": [
+        {
+          "id": "tucarro",
+          "name": "TuCarro",
+          "results": 0
+        },
+        {
+          "id": "tuinmueble",
+          "name": "TuInmueble",
+          "results": 0
+        },
+        {
+          "id": "tumoto",
+          "name": "TuMoto",
+          "results": 0
+        },
+        {
+          "id": "tulancha",
+          "name": "TuLancha",
+          "results": 0
+        },
+        {
+          "id": "autoplaza",
+          "name": "Autoplaza",
+          "results": 0
+        },
+        {
+          "id": "autoplaza_ml",
+          "name": "Autoplaza Premium",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "labels",
+      "name": "Others",
+      "values": [
+        {
+          "id": "few_available",
+          "name": "Items with few availables",
+          "results": 0
+        },
+        {
+          "id": "with_bids",
+          "name": "Items with bids",
+          "results": 0
+        },
+        {
+          "id": "without_bids",
+          "name": "Items whithout bids",
+          "results": 18
+        },
+        {
+          "id": "accepts_mercadopago",
+          "name": "Items with MercadoPago",
+          "results": 0
+        },
+        {
+          "id": "ending_soon",
+          "name": "Items ending in 20 days or less",
+          "results": 9
+        },
+        {
+          "id": "with_mercadolibre_envios",
+          "name": "Items with MercadoLibre Envíos",
+          "results": 0
+        },
+        {
+          "id": "without_mercadolibre_envios",
+          "name": "Items without MercadoLibre Envíos",
+          "results": 18
+        },
+        {
+          "id": "with_low_quality_image",
+          "name": "Items with low quality image",
+          "results": 0
+        },
+        {
+          "id": "with_free_shipping",
+          "name": "Items with free shipping",
+          "results": 0
+        },
+        {
+          "id": "without_free_shipping",
+          "name": "Items with free shipping",
+          "results": 18
+        },
+        {
+          "id": "with_automatic_relist",
+          "name": "Items with automatic relist",
+          "results": 0
+        },
+        {
+          "id": "waiting_for_payment",
+          "name": "Items waiting for payment",
+          "results": 0
+        },
+        {
+          "id": "suspended",
+          "name": "Suspended items",
+          "results": 0
+        },
+        {
+          "id": "cancelled",
+          "name": "Items cancelled that can not be recovered",
+          "results": 0
+        },
+        {
+          "id": "being_reviewed",
+          "name": "Items under review",
+          "results": 0
+        },
+        {
+          "id": "fix_required",
+          "name": "Items waiting for user fix",
+          "results": 0
+        },
+        {
+          "id": "waiting_for_documentation",
+          "name": "Items waiting for user documentation",
+          "results": 0
+        },
+        {
+          "id": "without_stock",
+          "name": "Paused items that are out of stock",
+          "results": 0
+        }
+      ]
+    }
+  ]
+}

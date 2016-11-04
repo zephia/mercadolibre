@@ -281,7 +281,7 @@ Overstriked resources are not available yet in this package. Contributions will 
 
     Get items by seller id and cateogyr id.
 
-* ~~`/users/{Cust_id}/items/search?access_token=$ACCESS_TOKEN` Retrieves user’s listings. GET~~
+* `/users/{Cust_id}/items/search?access_token=$ACCESS_TOKEN` Retrieves user’s listings. GET
 
     Get user’s listings
     

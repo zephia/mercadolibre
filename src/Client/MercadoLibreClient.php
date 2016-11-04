@@ -248,7 +248,7 @@ class MercadoLibreClient
      */
     private function setBody($object)
     {
-        $postKey = (version_compare(ClientInterface::VERSION, '6') === 1) ? 'body' : 'form_params';
+        $postKey = (version_compare(ClientInterface::VERSION, '6') === 1) ? 'form_params' : 'body';
         $json = $this->serializer->serialize($object, 'json');
         return [$postKey => $json];
     }

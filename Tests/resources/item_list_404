@@ -1,0 +1,6 @@
+{
+  "message": "Resource /users//items/search not found.",
+  "error": "not_found",
+  "status": 404,
+  "cause": []
+}

@@ -353,6 +353,74 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \GuzzleHttp\Exception\ClientException
+     * @expectedExceptionMessage Client error: `GET https://api.mercadolibre.com/users//items/search` resulted in a `404 Not Found`
+     */
+    public function testItemListEmptyUserId()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(404, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/item_list_404', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+        $client->itemList('');
+    }
+
+    /**
+     * @expectedException \GuzzleHttp\Exception\ClientException
+     * @expectedExceptionMessage Client error: `GET https://api.mercadolibre.com/users/user_id/items/search` resulted in a `403 Forbidden`
+     */
+    public function testItemListEmptyAccessToken()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(403, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/item_list_403', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+        $client->itemList('user_id');
+    }
+
+    /**
+     * @expectedException \GuzzleHttp\Exception\ClientException
+     * @expectedExceptionMessage Client error: `GET https://api.mercadolibre.com/users/user_id/items/search?access_token=bad_token` resulted in a `400 Bad Request`
+     */
+    public function testItemListInvalidAccessToken()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(400, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/item_list_400', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+        $client->setAccessToken('bad_token')->itemList('user_id');
+    }
+
+    /**
+     * @expectedException \GuzzleHttp\Exception\ClientException
+     * @expectedExceptionMessage Client error: `GET https://api.mercadolibre.com/users/user_id/items/search?access_token=APP_USR-1234567890123456-123456-123456789abcdef123456789abcdef12__F_B__-123456789` resulted in a `401 Unauthorized`
+     */
+    public function testItemListWrongAccessToken()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(401, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/item_list_401', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+        $client->setAccessToken(self::DUMMY_ACCESS_TOKEN)->itemList('user_id');
+    }
+
+    public function testItemListOk()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(200, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/item_list_200', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+        $items = $client->setAccessToken(self::DUMMY_ACCESS_TOKEN)->itemList('user_id');
+        $this->assertEquals(12345678, $items->seller_id);
+        $this->assertNull($items->query);
+    }
+
+    /**
+     * @expectedException \GuzzleHttp\Exception\ClientException
      * @expectedExceptionMessage Client error: `GET https://api.mercadolibre.com/items/wrong_item_id` resulted in a `404 Not Found`
      */
     public function testItemShowWrongId()

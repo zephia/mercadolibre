@@ -246,6 +246,29 @@ class MercadoLibreClient
     }
 
     /**
+     * Item create resource
+     *
+     * @param string $item_id
+     *
+     * @return array|\JMS\Serializer\scalar|object
+     */
+    public function itemUpdate($item_id, $fields)
+    {
+        // TODO: Tests
+        $response = $this->getGuzzleClient()
+            ->put(
+                '/items/' . $item_id,
+                array_merge($this->setQuery(), $this->setBody($fields))
+            );
+
+        return $this->serializer->deserialize(
+            $response->getBody()->getContents(),
+            Item::class,
+            'json'
+        );
+    }
+
+    /**
      * Set query
      *
      * @param array $query

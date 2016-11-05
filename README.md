@@ -145,7 +145,7 @@ Overstriked resources are not available yet in this package. Contributions will 
 
     Get the category tree by site
     ```php
-    $client->categoriesList();
+    $client->categoryList();
     ```
 
 * ~~`/categories/{Category_id}` Returns information about a category. GET~~
@@ -156,9 +156,13 @@ Overstriked resources are not available yet in this package. Contributions will 
 
     Get category attributes.
 
-* ~~`/sites/{Site_id}/category_predictor/predict` Category predictor. Retrieves the most accurate category to list your item basing on it’s title. GET~~
+* `/sites/{Site_id}/category_predictor/predict` Category predictor. Retrieves the most accurate category to list your item basing on it’s title. GET
 
     Predict category.
+    
+    ```php
+    $client->categoryPredict('MLA', 'Fiat Uno');
+    ```
 
 * ~~`/categories/{Category_id}/classifieds_promotion_packs` Retrieves classified promotion packs by category. GET~~
 

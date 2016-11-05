@@ -11,25 +11,25 @@
 namespace Zephia\MercadoLibre\Entity;
 
 /**
- * Class Category
+ * Class CategoryPrediction
  *
  * @package Zephia\MercadoLibre\Entity
- * @author  Mauro Moreno <moreno.mauro.emanuel@gmail.com>
+ * @author  Mauro Moreno<moreno.mauro.emanuel@gmail.com>
  */
-class Category
+class CategoryPrediction extends Category
 {
-    /**
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $name;
-
     /**
      * @var array
      */
     public $path_from_root;
+
+    /**
+     * @var float
+     */
+    public $prediction_probability;
+
+    /**
+     * @var array
+     */
+    public $shipping_modes;
 }

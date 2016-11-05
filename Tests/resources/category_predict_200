@@ -1,0 +1,31 @@
+{
+  "id": "MLA24322",
+  "name": "Uno",
+  "path_from_root": [
+    {
+      "id": "MLA1743",
+      "name": "Autos, Motos y Otros",
+      "prediction_probability": 0.8713943890833494
+    },
+    {
+      "id": "MLA1744",
+      "name": "Autos y Camionetas",
+      "prediction_probability": 0.85175735504079
+    },
+    {
+      "id": "MLA3174",
+      "name": "Fiat",
+      "prediction_probability": 0.84350833126134
+    },
+    {
+      "id": "MLA24322",
+      "name": "Uno",
+      "prediction_probability": 0.8317762719353748
+    }
+  ],
+  "prediction_probability": 0.8317762719353748,
+  "shipping_modes": [
+    "not_specified",
+    "custom"
+  ]
+}

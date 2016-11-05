@@ -1,0 +1,8 @@
+{
+  "cause": [
+    "Specified 'title' is empty"
+  ],
+  "error": "invalid_parameters",
+  "message": "Invalid parameters",
+  "status": 400
+}

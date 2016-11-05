@@ -11,9 +11,9 @@
 namespace Zephia\MercadoLibre\Client;
 
 use GuzzleHttp\Client as GuzzleClient;
-use GuzzleHttp\ClientInterface;
 use JMS\Serializer\SerializerInterface;
 use Zephia\MercadoLibre\Entity\Category;
+use Zephia\MercadoLibre\Entity\CategoryPrediction;
 use Zephia\MercadoLibre\Entity\Item;
 use Zephia\MercadoLibre\Entity\ItemList;
 use Zephia\MercadoLibre\Entity\User;
@@ -164,6 +164,28 @@ class MercadoLibreClient
     }
 
     /**
+     * Category Predict resource
+     *
+     * @param $site_id string
+     * @param $title   string
+     *
+     * @return array|\JMS\Serializer\scalar|object
+     */
+    public function categoryPredict($site_id, $title)
+    {
+        $response = $this->getGuzzleClient()
+            ->get(
+                '/sites/' . $site_id . '/category_predictor/predict',
+                $this->setQuery(['title' => $title])
+            );
+        return $this->serializer->deserialize(
+            $response->getBody()->getContents(),
+            CategoryPrediction::class,
+            'json'
+        );
+    }
+
+    /**
      * Item List resource
      *
      * @param $user_id string
@@ -248,8 +270,7 @@ class MercadoLibreClient
      */
     private function setBody($object)
     {
-        $postKey = (version_compare(ClientInterface::VERSION, '6') === 1) ? 'form_params' : 'body';
         $json = $this->serializer->serialize($object, 'json');
-        return [$postKey => $json];
+        return ['body' => $json];
     }
 }

@@ -2,6 +2,8 @@ Zephia\MercadoLibre\Entity\Category:
   exclusion_policy: NONE
   properties:
     id:
-      type: string
+      type: "string"
     name:
-      type: string
+      type: "string"
+    path_from_root:
+      type: "array<Zephia\\MercadoLibre\\Entity\\Category>"

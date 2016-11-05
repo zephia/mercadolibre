@@ -15,6 +15,7 @@ use Zephia\MercadoLibre\Entity\BuyerReputation;
 use Zephia\MercadoLibre\Entity\BuyerTransaction;
 use Zephia\MercadoLibre\Entity\Canceled;
 use Zephia\MercadoLibre\Entity\Category;
+use Zephia\MercadoLibre\Entity\CategoryPrediction;
 use Zephia\MercadoLibre\Entity\Company;
 use Zephia\MercadoLibre\Entity\Context;
 use Zephia\MercadoLibre\Entity\Credit;
@@ -349,6 +350,69 @@ class MercadoLibreClientTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(Category::class, $category_list[1]);
         $this->assertEquals('MLA1403', $category_list[1]->id);
         $this->assertEquals('Alimentos y Bebidas', $category_list[1]->name);
+    }
+
+    /**
+     * @expectedException \GuzzleHttp\Exception\ClientException
+     * @expectedExceptionMessage Client error: `GET https://api.mercadolibre.com/sites//category_predictor/predict?title=` resulted in a `404 Not Found`
+     */
+    public function testCategoryPredictEmptySiteId()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(404, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/category_predict_404', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+        $client->categoryPredict('', '');
+    }
+
+    /**
+     * @expectedException \GuzzleHttp\Exception\ClientException
+     * @expectedExceptionMessage Client error: `GET https://api.mercadolibre.com/sites/wrong_site_id/category_predictor/predict?title=` resulted in a `404 Not Found`
+     */
+    public function testCategoryPredictWrongSiteId()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(404, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/category_predict_404', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+        $client->categoryPredict('wrong_site_id', '');
+    }
+
+    /**
+     * @expectedException \GuzzleHttp\Exception\ClientException
+     * @expectedExceptionMessage Client error: `GET https://api.mercadolibre.com/sites/MLA/category_predictor/predict?title=` resulted in a `400
+     */
+    public function testCategoryPredictEmptyTitle()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(400, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/category_predict_400', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+        $client->categoryPredict('MLA', '');
+    }
+
+    public function testCategoryPredictOk()
+    {
+        $client = new MercadoLibreClient([], $this->serializer);
+        $mock = new MockHandler([
+            new Response(200, [], Psr7\stream_for(fopen(__DIR__ . '/../resources/category_predict_200', 'r')))
+        ]);
+        $client->getGuzzleClient()->getConfig('handler')->setHandler($mock);
+        $prediction = $client->categoryPredict('MLA', 'Fiat Uno');
+        $this->assertInstanceOf(CategoryPrediction::class, $prediction);
+        $this->assertEquals('MLA24322', $prediction->id);
+        $this->assertEquals('Uno', $prediction->name);
+        $this->assertEquals(4, count($prediction->path_from_root));
+        $this->assertInstanceOf(CategoryPrediction::class, $prediction->path_from_root[0]);
+        $this->assertEquals('MLA1743', $prediction->path_from_root[0]->id);
+        $this->assertEquals('Autos, Motos y Otros', $prediction->path_from_root[0]->name);
+        $this->assertEquals(0.8713943890833494, $prediction->path_from_root[0]->prediction_probability);
+        $this->assertEquals(0.8317762719353748, $prediction->prediction_probability);
+        $this->assertEquals(2, count($prediction->shipping_modes));
+        $this->assertEquals('not_specified', $prediction->shipping_modes[0]);
     }
 
     /**

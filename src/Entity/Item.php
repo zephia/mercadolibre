@@ -89,6 +89,11 @@ class Item
     public $deal_ids;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var array
      */
     public $descriptions;

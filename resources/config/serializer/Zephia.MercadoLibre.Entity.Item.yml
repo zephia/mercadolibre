@@ -29,6 +29,8 @@ Zephia\MercadoLibre\Entity\Item:
       type: "DateTime<'Y-m-d\\TH:i:s.uP'>"
     deal_ids:
       type: "array"
+    description:
+      type: "string"
     descriptions:
       type: "array<Zephia\\MercadoLibre\\Entity\\Description>"
     differential_pricing:

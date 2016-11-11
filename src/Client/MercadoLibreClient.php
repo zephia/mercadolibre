@@ -139,16 +139,17 @@ class MercadoLibreClient
      * Hired packages by user
      *
      * @param $user_id
+     * @param $filters
      *
      * @return array|\JMS\Serializer\scalar|object
      */
-    public function userPackages($user_id)
+    public function userPackages($user_id, $filters = [])
     {
         // TODO: Tests
         $response = $this->getGuzzleClient()
             ->get(
                 '/users/' . $user_id . '/classifieds_promotion_packs',
-                $this->setQuery()
+                $this->setQuery($filters)
             );
 
         return $this->serializer->deserialize(

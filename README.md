@@ -85,9 +85,13 @@ Overstriked resources are not available yet in this package. Contributions will 
 
     Get brands by user.
 
-* ~~`/users/{User_id}/classifieds_promotion_packs?access_token=$ACCESS_TOKEN` Manage user promotion packs. GET POST~~
+* `/users/{User_id}/classifieds_promotion_packs?access_token=$ACCESS_TOKEN` Manage user promotion packs. GET POST
 
     Get promotions packs engaged by user.
+    
+    ```php
+    $client->userPackages();
+    ```
 
     Creates a new Promotion Pack for the user.
 

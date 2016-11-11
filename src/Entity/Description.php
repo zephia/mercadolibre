@@ -14,7 +14,7 @@ namespace Zephia\MercadoLibre\Entity;
  * Class Description
  *
  * @package Zephia\MercadoLibre\Entity
- * @author  Mauro Moreno <moreno.mauro.emanuel@gmail.com>
+ * @author  Mauro Moreno<moreno.mauro.emanuel@gmail.com>
  */
 class Description
 {

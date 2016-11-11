@@ -14,7 +14,7 @@ namespace Zephia\MercadoLibre\Entity;
  * Class Canceled
  *
  * @package Zephia\MercadoLibre\Entity
- * @author  Mauro Moreno <moreno.mauro.emanuel@gmail.com>
+ * @author  Mauro Moreno<moreno.mauro.emanuel@gmail.com>
  */
 class Canceled
 {

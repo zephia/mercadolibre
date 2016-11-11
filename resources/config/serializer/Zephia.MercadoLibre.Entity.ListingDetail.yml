@@ -1,0 +1,11 @@
+Zephia\MercadoLibre\Entity\ListingDetail:
+  exclusion_policy: NONE
+  properties:
+    available_listings:
+      type: "integer"
+    listing_type_id:
+      type: "string"
+    remaining_listings:
+      type: "integer"
+    used_listings:
+      type: "integer"

@@ -16,6 +16,7 @@ use Zephia\MercadoLibre\Entity\Category;
 use Zephia\MercadoLibre\Entity\CategoryPrediction;
 use Zephia\MercadoLibre\Entity\Item;
 use Zephia\MercadoLibre\Entity\ItemList;
+use Zephia\MercadoLibre\Entity\Package;
 use Zephia\MercadoLibre\Entity\User;
 
 /**
@@ -118,18 +119,41 @@ class MercadoLibreClient
     /**
      * User show resource
      *
-     * @param $customer_id
+     * @param $user_id
      *
      * @return array|\JMS\Serializer\scalar|object
      */
-    public function userShow($customer_id)
+    public function userShow($user_id)
     {
         $response = $this->getGuzzleClient()
-            ->get('/users/' . $customer_id, $this->setQuery());
+            ->get('/users/' . $user_id, $this->setQuery());
 
         return $this->serializer->deserialize(
             $response->getBody()->getContents(),
             User::class,
+            'json'
+        );
+    }
+
+    /**
+     * Hired packages by user
+     *
+     * @param $user_id
+     *
+     * @return array|\JMS\Serializer\scalar|object
+     */
+    public function userPackages($user_id)
+    {
+        // TODO: Tests
+        $response = $this->getGuzzleClient()
+            ->get(
+                '/users/' . $user_id . '/classifieds_promotion_packs',
+                $this->setQuery()
+            );
+
+        return $this->serializer->deserialize(
+            $response->getBody()->getContents(),
+            "array<" . Package::class . ">",
             'json'
         );
     }

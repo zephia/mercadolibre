@@ -11,25 +11,30 @@
 namespace Zephia\MercadoLibre\Entity;
 
 /**
- * Class Rating
+ * Class ListingDetail
  *
  * @package Zephia\MercadoLibre\Entity
  * @author  Mauro Moreno<moreno.mauro.emanuel@gmail.com>
  */
-class Rating
+class ListingDetail
 {
     /**
      * @var integer
      */
-    public $negative;
+    public $available_listings;
+
+    /**
+     * @var string
+     */
+    public $listing_type_id;
 
     /**
      * @var integer
      */
-    public $neutral;
+    public $remaining_listings;
 
     /**
      * @var integer
      */
-    public $positive;
+    public $used_listings;
 }

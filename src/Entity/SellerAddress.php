@@ -14,7 +14,7 @@ namespace Zephia\MercadoLibre\Entity;
  * Class SellerAddress
  *
  * @package Zephia\MercadoLibre\Entity
- * @author  Mauro Moreno <moreno.mauro.emanuel@gmail.com>
+ * @author  Mauro Moreno<moreno.mauro.emanuel@gmail.com>
  */
 class SellerAddress
 {
@@ -24,7 +24,7 @@ class SellerAddress
     public $id;
 
     /**
-     * @var integer
+     * @var string
      */
     public $address_line;
 

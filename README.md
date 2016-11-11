@@ -51,15 +51,23 @@ Overstriked resources are not available yet in this package. Contributions will 
 
 ### Users & Apps
 
-* ~~`/users/{Cust_id}?access_token=$ACCESS_TOKEN` User account information. GET PUT~~
+* `/users/{Cust_id}?access_token=$ACCESS_TOKEN` User account information. GET PUT
 
     Get user information.
+    
+    ```php
+    $client->userShow('123');
+    ```
 
     Update user information
 
-* ~~`/users/me` Returns account information about the authenticated user. GET~~
+* `/users/me` Returns account information about the authenticated user. GET
 
-    Get information about the authenticated in user.
+    Get information about the authenticated user.
+    
+    ```php
+    $client->userShowMe();
+    ```
 
 * ~~`/users/{Cust_id}/addresses?access_token=$ACCESS_TOKEN` Returns addresses registered by the user. GET~~
 

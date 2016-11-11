@@ -5,5 +5,3 @@ Zephia\MercadoLibre\Entity\ItemList:
       type: "string"
     seller_id:
       type: "string"
-    paging:
-

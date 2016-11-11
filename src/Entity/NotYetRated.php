@@ -14,19 +14,19 @@ namespace Zephia\MercadoLibre\Entity;
  * Class NotYetRated
  *
  * @package Zephia\MercadoLibre\Entity
- * @author  Mauro Moreno <moreno.mauro.emanuel@gmail.com>
+ * @author  Mauro Moreno<moreno.mauro.emanuel@gmail.com>
  */
 class NotYetRated
 {
     /**
      * @var integer
      */
-    public $total;
+    public $paid;
 
     /**
      * @var integer
      */
-    public $paid;
+    public $total;
 
     /**
      * @var string

@@ -14,7 +14,7 @@ namespace Zephia\MercadoLibre\Entity;
  * Class User
  *
  * @package Zephia\MercadoLibre\Entity
- * @author  Mauro Moreno <moreno.mauro.emanuel@gmail.com>
+ * @author  Mauro Moreno<moreno.mauro.emanuel@gmail.com>
  */
 class User
 {
@@ -44,6 +44,11 @@ class User
     public $buyer_reputation;
 
     /**
+     * @var string
+     */
+    public $country_id;
+
+    /**
      * @var Company
      */
     public $company;
@@ -52,11 +57,6 @@ class User
      * @var Context
      */
     public $context;
-
-    /**
-     * @var string
-     */
-    public $country_id;
 
     /**
      * @var Credit

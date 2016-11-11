@@ -1,0 +1,49 @@
+Zephia\MercadoLibre\Entity\Package:
+  exclusion_policy: NONE
+  properties:
+    id:
+      type: "integer"
+    bonus_id:
+      type: "string"
+    brand:
+      type: "string"
+    category_id:
+      type: "string"
+    charge_id:
+      type: "integer"
+    date_created:
+      type: "DateTime<'Y-m-d\\TH:i:s.uP'>"
+    date_expires:
+      type: "DateTime<'Y-m-d\\TH:i:s.uP'>"
+    date_stopped:
+      type: "DateTime<'Y-m-d\\TH:i:s.uP'>"
+    date_start:
+      type: "DateTime<'Y-m-d\\TH:i:s.uP'>"
+    description:
+      type: "string"
+    engagement_type:
+      type: "string"
+    last_updated:
+      type: "DateTime<'Y-m-d\\TH:i:s.uP'>"
+    listing_details:
+      type: "array<Zephia\\MercadoLibre\\Entity\\ListingDetail>"
+    next_promotion_pack_id:
+      type: "string"
+    promotion_pack_id:
+      type: "string"
+    package_content:
+      type: "string"
+    package_type:
+      type: "string"
+    parent_promotion_pack_id:
+      type: "string"
+    quota_type:
+      type: "string"
+    remaining_listings:
+      type: "integer"
+    status:
+      type: "string"
+    used_listings:
+      type: "integer"
+    user_id:
+      type: "string"

@@ -23,7 +23,7 @@ use Zephia\MercadoLibre\Entity\User;
  * Class MercadoLibreClient
  *
  * @package Zephia\MercadoLibre\Client
- * @author  Mauro Moreno <moreno.mauro.emanuel@gmail.com>
+ * @author  Mauro Moreno<moreno.mauro.emanuel@gmail.com>
  */
 class MercadoLibreClient
 {
@@ -291,6 +291,18 @@ class MercadoLibreClient
             Item::class,
             'json'
         );
+    }
+
+    /**
+     * Item delete resource
+     *
+     * @param $item_id
+     *
+     * @return array|\JMS\Serializer\scalar|object
+     */
+    public function itemDelete($item_id)
+    {
+        return $this->itemUpdate($item_id, ['deleted' => true]);
     }
 
     /**

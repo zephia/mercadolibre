@@ -321,7 +321,7 @@ class MercadoLibreClient
                 '/items/' . $item_id . '/listing_type',
                 array_merge(
                     $this->setQuery(),
-                    ['body' => ['id' => $listing_type]]
+                    ['body' => json_encode(['id' => $listing_type])]
                 )
             );
 

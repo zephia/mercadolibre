@@ -306,6 +306,33 @@ class MercadoLibreClient
     }
 
     /**
+     * Item update listing type
+     *
+     * @param string $item_id
+     * @param string $listing_type
+     *
+     * @return array|\JMS\Serializer\scalar|object
+     */
+    public function itemUpdateListingType($item_id, $listing_type)
+    {
+        // TODO: Tests
+        $response = $this->getGuzzleClient()
+            ->post(
+                '/items/' . $item_id . '/listing_type',
+                array_merge(
+                    $this->setQuery(),
+                    ['body' => ['id' => $listing_type]]
+                )
+            );
+
+        return $this->serializer->deserialize(
+            $response->getBody()->getContents(),
+            Item::class,
+            'json'
+        );
+    }
+
+    /**
      * Set query
      *
      * @param array $query

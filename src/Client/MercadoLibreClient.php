@@ -283,7 +283,7 @@ class MercadoLibreClient
         $response = $this->getGuzzleClient()
             ->put(
                 '/items/' . $item_id,
-                array_merge($this->setQuery(), $this->setBody($fields))
+                array_merge($this->setQuery(), $this->setBodyArray($fields))
             );
 
         return $this->serializer->deserialize(
@@ -306,6 +306,45 @@ class MercadoLibreClient
     }
 
     /**
+     * Item close resource
+     *
+     * @param $item_id
+     *
+     * @return array|\JMS\Serializer\scalar|object
+     */
+    public function itemClose($item_id)
+    {
+        return $this->itemUpdate($item_id, ['closed' => true]);
+    }
+
+    /**
+     * Item Relist
+     *
+     * @param string $item_id
+     * @param array $fields
+     *
+     * @return array|\JMS\Serializer\scalar|object
+     */
+    public function itemRelist($item_id, $fields)
+    {
+        // TODO: Tests
+        $response = $this->getGuzzleClient()
+            ->post(
+                '/items/' . $item_id . '/relist',
+                array_merge(
+                    $this->setQuery(),
+                    $this->setBodyArray($fields)
+                )
+            );
+
+        return $this->serializer->deserialize(
+            $response->getBody()->getContents(),
+            Item::class,
+            'json'
+        );
+    }
+
+    /**
      * Item update listing type
      *
      * @param string $item_id
@@ -321,7 +360,7 @@ class MercadoLibreClient
                 '/items/' . $item_id . '/listing_type',
                 array_merge(
                     $this->setQuery(),
-                    ['body' => json_encode(['id' => $listing_type])]
+                    $this->setBodyArray(['id' => $listing_type])
                 )
             );
 
@@ -359,5 +398,17 @@ class MercadoLibreClient
     {
         $json = $this->serializer->serialize($object, 'json');
         return ['body' => $json];
+    }
+
+    /**
+     * Set Body Array
+     *
+     * @param array $fields
+     *
+     * @return array
+     */
+    private function setBodyArray($fields = [])
+    {
+        return ['body' => json_encode($fields)];
     }
 }

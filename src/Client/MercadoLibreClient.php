@@ -314,7 +314,7 @@ class MercadoLibreClient
      */
     public function itemClose($item_id)
     {
-        return $this->itemUpdate($item_id, ['closed' => true]);
+        return $this->itemUpdate($item_id, ['status' => 'closed']);
     }
 
     /**
